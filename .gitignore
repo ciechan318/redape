@@ -9,6 +9,6 @@
 /vendor/
 ###< symfony/framework-bundle ###
 ###> PHPStorm files
-.idea/*
+/.idea
 ###< PHPStorm files
 
