@@ -2,20 +2,16 @@
 
 namespace App\DataFixtures;
 
-use App\DataFixtures\BaseFixture;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AppFixtures extends BaseFixture
+class AppFixtures extends Fixture
 {
-    public function loadData(ObjectManager $manager)
+    public function load(ObjectManager $manager)
     {
-        //@TODO
-//         $this->createMany(10, 'main_users', function ($i) {
-//            $user = new User();
-//            $user->setEmail(sprintf('user%d@example.com', $i));
-//            $user->setFirstName($this->faker->firstName);
-//
-//            return $user;
-//        });
+        // $product = new Product();
+        // $manager->persist($product);
+
+        $manager->flush();
     }
 }
