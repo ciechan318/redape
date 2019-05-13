@@ -1,0 +1,17 @@
+sonata_admin:
+    title: 'Admin Panel'
+    dashboard:
+        groups:
+            main:
+                label: "administration.groups.main"
+                keep_open: true
+            user:
+                label: "administration.groups.user"
+
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

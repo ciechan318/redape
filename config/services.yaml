@@ -26,3 +26,39 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Admin\Administration\IngredientAdmin:
+        class: App\Admin\Administration\IngredientAdmin
+        arguments:
+            - ~
+            - App\Entity\Ingredient
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_ingredient" }
+
+    App\Admin\Administration\RecipeAdmin:
+        class: App\Admin\Administration\RecipeAdmin
+        arguments:
+            - ~
+            - App\Entity\Recipe
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_recipe" }
+
+    App\Admin\Administration\UserAdministratorAdmin:
+        class: App\Admin\Administration\UserAdministratorAdmin
+        arguments:
+            - ~
+            - App\Entity\User
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_administrator" }
+
+    App\Admin\Administration\UserUserAdmin:
+        class: App\Admin\Administration\UserUserAdmin
+        arguments:
+            - ~
+            - App\Entity\User
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_user" }

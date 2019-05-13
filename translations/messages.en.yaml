@@ -1,0 +1,8 @@
+administration_ingredient: "Ingredients"
+administration_recipe: "Recipes"
+administration_user_administrator: "Admins"
+administration_user_user: "Clients"
+
+
+label_password: "Password"
+label_password_confirmation: "Password confirmation"
