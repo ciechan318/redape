@@ -32,7 +32,7 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
             ->add('description')//@TODO WYSIWYG editor
             ->add('preparationTime', null, ['help' => 'help_label_preparationType'])
             ->add('type', ChoiceType::class, ['choices' => Recipe::getTypes()])
-            ->add('ingredientQuantities', CollectionType::class, [ //@TODO inline adding new Ingredients
+            ->add('ingredientQuantities', CollectionType::class, [
                 'by_reference' => false,
             ], [
                     'label' => false,

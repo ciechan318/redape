@@ -4,6 +4,7 @@
 namespace App\Admin\Administration;
 
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelType;
 
 final class IngredientQuantityAdmin extends AbstractAdministrationAdmin
 {
@@ -12,7 +13,7 @@ final class IngredientQuantityAdmin extends AbstractAdministrationAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('ingredient');
+        $formMapper->add('ingredient', ModelType::class);
         $formMapper->add('quantity');
     }
 
