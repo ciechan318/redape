@@ -1,0 +1,3 @@
+default: "Panels"
+administration.groups.main: "Main"
+administration.groups.user: "Users"

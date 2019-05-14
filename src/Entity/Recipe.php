@@ -5,12 +5,19 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RecipeRepository")
  */
 class Recipe
 {
+    const TYPE_BREAKFAST = 1;
+    const TYPE_DINNER = 2;
+    const TYPE_SNACK = 3;
+    const TYPE_FESTIVE = 4;
+    const TYPE_OTHER = 5;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -24,6 +31,8 @@ class Recipe
     private $name;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="text")
      */
     private $description;
@@ -36,7 +45,7 @@ class Recipe
     /**
      * @ORM\Column(type="integer")
      */
-    private $likes;
+    private $likes = 0;
 
     /**
      * @ORM\Column(type="integer")
@@ -44,18 +53,26 @@ class Recipe
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\IngredientQuantity", mappedBy="recipe", orphanRemoval=true)
+     * @Assert\Valid()
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\IngredientQuantity", mappedBy="recipe", orphanRemoval=true, cascade={"persist"})
      */
     private $ingredientQuantities;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="recipes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function __construct()
     {
         $this->ingredientQuantities = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function __toString()
     {
-        return $this->id;
+        return (string)$this->getName();
     }
 
     public function getName(): ?string
@@ -68,6 +85,41 @@ class Recipe
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getHumanType(): string
+    {
+        return self::getTypes(false)[$this->getType()];
+    }
+
+    static public function getTypes(?bool $flip = true): array
+    {
+        $result = [
+            self::TYPE_BREAKFAST => 'recipe_type_breakfast',
+            self::TYPE_DINNER => 'recipe_type_dinner',
+            self::TYPE_SNACK => 'recipe_type_snack',
+            self::TYPE_FESTIVE => 'recipe_type_festive',
+            self::TYPE_OTHER => 'recipe_type_other',
+        ];
+
+        return $flip ? array_flip($result) : $result;
+    }
+
+    public function getType(): ?int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getDescription(): ?string
@@ -106,18 +158,6 @@ class Recipe
         return $this;
     }
 
-    public function getType(): ?int
-    {
-        return $this->type;
-    }
-
-    public function setType(int $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     /**
      * @return Collection|IngredientQuantity[]
      */
@@ -145,6 +185,18 @@ class Recipe
                 $ingredientQuantity->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

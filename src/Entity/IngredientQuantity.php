@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\IngredientQuantityRepository")
@@ -17,6 +18,8 @@ class IngredientQuantity
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $quantity;
@@ -28,10 +31,17 @@ class IngredientQuantity
     private $recipe;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Ingredient", inversedBy="ingredientQuantities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ingredient;
+
+    public function __toString()
+    {
+        return (string) 'IngredientQuantity';
+    }
 
     public function getId(): ?int
     {
