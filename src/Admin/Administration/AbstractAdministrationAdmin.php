@@ -14,7 +14,7 @@ abstract class AbstractAdministrationAdmin extends AbstractAdmin
     /**
      * @var ClientManager
      */
-    private $clientManager;
+    protected $clientManager;
 
     public function __construct($code, $class, $baseControllerName, ClientManager $clientManager)
     {

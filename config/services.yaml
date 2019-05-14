@@ -27,6 +27,15 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    App\Admin\Administration\IngredientQuantityAdmin:
+        class: App\Admin\Administration\IngredientQuantityAdmin
+        arguments:
+            - ~
+            - App\Entity\IngredientQuantity
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "administration_ingredient_quantity" }
+
     App\Admin\Administration\IngredientAdmin:
         class: App\Admin\Administration\IngredientAdmin
         arguments:

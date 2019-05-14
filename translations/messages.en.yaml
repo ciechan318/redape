@@ -6,3 +6,13 @@ administration_user_user: "Clients"
 
 label_password: "Password"
 label_password_confirmation: "Password confirmation"
+
+
+help_label_preparationType: "In minutes"
+
+
+recipe_type_breakfast: "Breakfast"
+recipe_type_dinner: "Dinner"
+recipe_type_snack: "Snack"
+recipe_type_festive: "Festive"
+recipe_type_other: "Other"
