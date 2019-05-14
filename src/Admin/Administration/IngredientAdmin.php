@@ -11,7 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 final class IngredientAdmin extends AbstractAdministrationAdmin
 {
 
-    protected $baseRoutePattern = self::ROUTE_PREFIX . 'ingredients';
+    protected $baseRoutePattern = '/ingredients';
 
     protected function configureFormFields(FormMapper $formMapper)
     {

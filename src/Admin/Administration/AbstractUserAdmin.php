@@ -7,6 +7,7 @@ use App\Service\ClientManager;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -14,7 +15,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
 {
 
-    const ROUTE_PREFIX = 'users/';
+    const ROUTE_PREFIX = '/users/';
     /**
      * @var UserPasswordEncoderInterface
      */
