@@ -31,6 +31,8 @@ class Recipe
     private $name;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="text")
      */
     private $description;

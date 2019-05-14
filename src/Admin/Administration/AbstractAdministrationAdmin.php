@@ -19,7 +19,7 @@ abstract class AbstractAdministrationAdmin extends AbstractAdmin
     public function __construct($code, $class, $baseControllerName, ClientManager $clientManager)
     {
         parent::__construct($code, $class, $baseControllerName);
-        $this->clientManager = $clientManager; //@TODO not used for now, just checking autowiring
+        $this->clientManager = $clientManager;
     }
 
 }

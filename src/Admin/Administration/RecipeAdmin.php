@@ -29,7 +29,7 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
     {
         $formMapper
             ->add('name')
-            ->add('description')//@TODO WYSIWYG editor
+            ->add('description', null, ['attr' => ['class' => 'ckeditor simple']])
             ->add('preparationTime', null, ['help' => 'help_label_preparationType'])
             ->add('type', ChoiceType::class, ['choices' => Recipe::getTypes()])
             ->add('ingredientQuantities', CollectionType::class, [
@@ -47,7 +47,7 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
         $datagridMapper
             ->add('name')
             ->add('user', null, ['admin_code' => UserUserAdmin::class])
-            ->add('preparationTime', NumberFilter::class)//@TODO comparison characters and integer
+            ->add('preparationTime', NumberFilter::class)
             ->add('type', ChoiceFilter::class, [], ChoiceType::class, ['choices' => Recipe::getTypes()]);
     }
 
