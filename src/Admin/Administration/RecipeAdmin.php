@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 final class RecipeAdmin extends AbstractAdministrationAdmin
 {
 
-    protected $baseRoutePattern = self::ROUTE_PREFIX . 'recipes';
+    protected $baseRoutePattern = '/recipes';
 
     public function getNewInstance()
     {
@@ -35,6 +35,7 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
             ->add('ingredientQuantities', CollectionType::class, [
                 'by_reference' => false,
             ], [
+                    'admin_code' => IngredientQuantityAdmin::class,
                     'label' => false,
                     'edit' => 'inline',
                     'inline' => 'table',
