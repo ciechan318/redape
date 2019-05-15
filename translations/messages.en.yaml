@@ -11,8 +11,14 @@ label_password_confirmation: "Password confirmation"
 help_label_preparationType: "In minutes"
 
 
+action_submit: "Submit"
+
+
 recipe_type_breakfast: "Breakfast"
 recipe_type_dinner: "Dinner"
 recipe_type_snack: "Snack"
 recipe_type_festive: "Festive"
 recipe_type_other: "Other"
+
+
+flash_message_form_data_saved: "Submitted data was saved"
