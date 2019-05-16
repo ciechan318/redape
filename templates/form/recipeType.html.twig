@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.preparationTime) }}
+    {{ form_row(form.type) }}
+
+    {{ form_label(form.ingredientQuantities) }}
+
+<ul id="ingredient-quantities-fields-list"
+    data-prototype="{{ form_widget(form.ingredientQuantities.vars.prototype)|e }}"
+    data-widget-tags="{{ '<li></li>'|e }}"
+    data-widget-counter="{{ form.children|length }}">
+    {% for ingredientField in form.ingredientQuantities %}
+        <li>
+            {{ form_errors(ingredientField) }}
+            {{ form_widget(ingredientField) }}
+        </li>
+    {% endfor %}
+</ul>
+
+<button type="button"
+        class="add-collection-widget"
+        data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}
+</button>
+
+<button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
+
+{{ form_end(form) }}

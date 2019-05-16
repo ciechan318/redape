@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Create recipe{% endblock %}
+{% block title %}{{ 'profile_title_recipes_create'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>@TODO form with recipe creation</h1>
+    {% include 'form/recipeType.html.twig' %}
 {% endblock %}
