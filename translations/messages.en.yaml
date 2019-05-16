@@ -22,3 +22,7 @@ recipe_type_other: "Other"
 
 
 flash_message_form_data_saved: "Submitted data was saved"
+
+
+profile_title_user_data: "Manage your data"
+profile_title_password_change: "Change your password"

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ProfileDataType;
+use App\Form\PasswordChangeType;
 use App\Service\ClientManager;
 use App\Service\FlashManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,9 +35,20 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/change-password", name="app_profile_password")
      */
-    public function profilePassword()
+    public function profilePassword(Request $request, ClientManager $clientManager)
     {
+        $form = $this->createForm(PasswordChangeType::class, $clientManager->getUser());
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $clientManager->saveUserPassword($form->getData());
+
+            $this->addFlash(FlashManager::FLASH_TYPE_SUCCESS,FlashManager::FLASH_MESSAGE_FORM_DATA_SAVED);
+        }
+
         return $this->render('profile/passwordChange.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
