@@ -1,0 +1,10 @@
+<ul>
+    {% for name, route in sidebarRoutes %}
+        <li><a class="link link-black" href="{{ path(route) }}">
+                {{ name|trans }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+

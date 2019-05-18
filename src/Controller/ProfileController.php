@@ -14,10 +14,26 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfileController extends AbstractController
 {
+    public function sidebar(ClientManager $clientManager)
+    {
+        //render according to order of array
+        $sidebarRoutes = [
+            'profile_title_recipes_list' => 'app_profile_recipe_list',
+            'profile_title_user_data' => 'app_profile_data_change',
+            'profile_title_password_change' => 'app_profile_password_change',
+            'profile_title_logout' => 'app_logout',
+        ];
+
+        return $this->render('profile/sidebar.html.twig', [
+            'user' => $clientManager->getUser(),
+            'sidebarRoutes' => $sidebarRoutes,
+        ]);
+    }
+
     /**
-     * @Route("/profile/data", name="app_profile_data")
+     * @Route("/profile/data", name="app_profile_data_change")
      */
-    public function profileData(Request $request, ClientManager $clientManager)
+    public function dataChange(Request $request, ClientManager $clientManager)
     {
         $form = $this->createForm(ProfileDataType::class, $clientManager->getUser());
 
@@ -35,9 +51,9 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/profile/change-password", name="app_profile_password")
+     * @Route("/profile/change-password", name="app_profile_password_change")
      */
-    public function profilePassword(Request $request, ClientManager $clientManager)
+    public function passwordChange(Request $request, ClientManager $clientManager)
     {
         $form = $this->createForm(PasswordChangeType::class, $clientManager->getUser());
 
@@ -57,7 +73,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/recipes/list", name="app_profile_recipe_list")
      */
-    public function profileRecipeList(RecipeRepository $recipeRepository, ClientManager $clientManager)
+    public function recipeList(RecipeRepository $recipeRepository, ClientManager $clientManager)
     {
         $recipes = $recipeRepository->findBy(['user' => $clientManager->getUser()]); //@TODO pagination and use SearchManager for optimization
 
@@ -69,7 +85,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/recipes/create", name="app_profile_recipe_create")
      */
-    public function profileRecipeCreate()
+    public function recipeCreate()
     {
         return $this->render('profile/recipeCreate.html.twig', [
         ]);
@@ -78,7 +94,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/recipes/edit/{id}", name="app_profile_recipe_edit", requirements={"id"="\d+"})
      */
-    public function profileRecipeEdit(int $id, RecipeRepository $recipeRepository, ClientManager $clientManager)
+    public function recipeEdit(int $id, RecipeRepository $recipeRepository, ClientManager $clientManager)
     {
         $recipe = $recipeRepository->findOneBy(['user' => $clientManager->getUser(), 'id' => $id]);
 

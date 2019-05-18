@@ -34,6 +34,7 @@ profile_title_password_change: "Change your password"
 profile_title_recipes_list: "Your recipes"
 profile_title_recipes_create: "Create new recipe"
 profile_title_recipes_edit: "Edit recipe"
+profile_title_logout: "Logout"
 
 
 recipe_table_header_name: "Name"
