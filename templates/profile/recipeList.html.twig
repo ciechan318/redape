@@ -1,0 +1,40 @@
+{% extends 'profile/base.html.twig' %}
+
+{% block title %}{{ 'profile_title_recipes_list'|trans }}{% endblock %}
+
+{% block content %}
+    <a class="btn btn-success" href="{{ path('app_profile_recipe_create') }}">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        {{ 'action_create'|trans }}
+    </a>
+
+    {% if recipes|length == 0 %}
+        <div class="alert alert-warning">
+            {{ 'recipe_table_empty'|trans }}
+        </div>
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ 'recipe_table_header_name'|trans }}</th>
+                <th>{{ 'recipe_table_header_type'|trans }}</th>
+                <th>{{ 'recipe_table_header_actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% dump(recipes) %}
+            {% for recipe in recipes %}
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.humanType|trans }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_profile_recipe_edit', {'id': recipe.id}) }}">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                        {{ 'action_edit'|trans }}
+                    </a>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

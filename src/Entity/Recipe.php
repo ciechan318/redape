@@ -26,6 +26,8 @@ class Recipe
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -38,6 +40,9 @@ class Recipe
     private $description;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\GreaterThan(0)
+     *
      * @ORM\Column(type="integer")
      */
     private $preparationTime;
@@ -48,6 +53,8 @@ class Recipe
     private $likes = 0;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="integer")
      */
     private $type;

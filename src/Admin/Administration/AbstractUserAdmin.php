@@ -3,34 +3,24 @@
 
 namespace App\Admin\Administration;
 
-use App\Service\ClientManager;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
 {
 
-    const ROUTE_PREFIX = '/users/';
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $userPasswordEncoder;
+//    @TODO custom action for password change
+//    @TODO logout action for admin
 
-    public function __construct($code, $class, $baseControllerName, ClientManager $clientManager, UserPasswordEncoderInterface $userPasswordEncoder)
-    {
-        parent::__construct($code, $class, $baseControllerName, $clientManager);
-        $this->userPasswordEncoder = $userPasswordEncoder;
-    }
+    const ROUTE_PREFIX = '/users/';
 
     public function prePersist($object)
     {
         parent::prePersist($object);
-        $object->setPassword($this->userPasswordEncoder->encodePassword($object, $object->getPassword()));
+        $this->clientManager->saveUserPassword($object, false);
     }
 
     protected function configureFormFields(FormMapper $formMapper)

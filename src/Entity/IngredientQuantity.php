@@ -26,7 +26,7 @@ class IngredientQuantity
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Recipe", inversedBy="ingredientQuantities")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $recipe;
 
@@ -34,7 +34,7 @@ class IngredientQuantity
      * @Assert\NotBlank()
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Ingredient", inversedBy="ingredientQuantities")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $ingredient;
 

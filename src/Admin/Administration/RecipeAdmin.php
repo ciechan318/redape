@@ -4,6 +4,7 @@
 namespace App\Admin\Administration;
 
 use App\Entity\Recipe;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -29,7 +30,7 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
     {
         $formMapper
             ->add('name')
-            ->add('description', null, ['attr' => ['class' => 'ckeditor simple']])
+            ->add('description', CKEditorType::class)
             ->add('preparationTime', null, ['help' => 'help_label_preparationType'])
             ->add('type', ChoiceType::class, ['choices' => Recipe::getTypes()])
             ->add('ingredientQuantities', CollectionType::class, [
