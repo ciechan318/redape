@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Recipe;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -15,7 +16,7 @@ class RecipeType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description', null, ['attr' => ['class' => 'ckeditor simple']])//@TODO ckeditor fix
+            ->add('description', CKEditorType::class)
             ->add('preparationTime', null, ['help' => 'help_label_preparationType'])
             ->add('type', ChoiceType::class, ['choices' => Recipe::getTypes()])
             ->add('ingredientQuantities', CollectionType::class, [
