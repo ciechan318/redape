@@ -2,14 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Recipe;
 use App\Form\PasswordChangeType;
 use App\Form\ProfileDataType;
-use App\Form\RecipeType;
 use App\Repository\RecipeRepository;
 use App\Service\ClientManager;
 use App\Service\FlashManager;
-use App\Service\RecipeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -74,10 +71,7 @@ class ProfileController extends AbstractController
      */
     public function profileRecipeCreate()
     {
-        $form = $this->createForm(RecipeType::class, new Recipe(), ['action' => $this->generateUrl('app_recipe_persist')]);
-
         return $this->render('profile/recipeCreate.html.twig', [
-            'form' => $form->createView(),
         ]);
     }
 
@@ -92,30 +86,10 @@ class ProfileController extends AbstractController
             throw new NotFoundHttpException();
         }
 
-        $form = $this->createForm(RecipeType::class, $recipe, ['action' => $this->generateUrl('app_recipe_persist')]);
-
         return $this->render('profile/recipeEdit.html.twig', [
-            'form' => $form->createView(),
+            'recipe' => $recipe,
         ]);
     }
 
-    /**
-     * @Route("/recipe-persist", name="app_recipe_persist", methods={"POST"})
-     */
-    public function recipePersist(Request $request, RecipeManager $recipeManager)
-    {
-        $form = $this->createForm(RecipeType::class);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $recipeManager->saveRecipe($form->getData());
-
-            $this->addFlash(FlashManager::FLASH_TYPE_SUCCESS, FlashManager::FLASH_MESSAGE_FORM_DATA_SAVED);
-        }
-
-//@TODO redirect, errors returning
-        return $this->json(['@TODO']);
-    }
 
 }

@@ -3,5 +3,5 @@
 {% block title %}{{ 'profile_title_recipes_create'|trans }}{% endblock %}
 
 {% block body %}
-    {% include 'form/recipeType.html.twig' %}
+    {{ render(controller('App\\Controller\\FormController::recipe')) }}
 {% endblock %}

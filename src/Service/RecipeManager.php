@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Recipe;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
 

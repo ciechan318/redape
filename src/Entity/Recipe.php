@@ -41,6 +41,7 @@ class Recipe
 
     /**
      * @Assert\NotBlank()
+     * @Assert\GreaterThan(0)
      *
      * @ORM\Column(type="integer")
      */

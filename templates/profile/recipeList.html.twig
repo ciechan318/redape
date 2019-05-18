@@ -3,6 +3,11 @@
 {% block title %}{{ 'profile_title_recipes_list'|trans }}{% endblock %}
 
 {% block body %}
+    <a class="btn btn-success" href="{{ path('app_profile_recipe_create') }}">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        {{ 'action_create'|trans }}
+    </a>
+
     {% if recipes|length == 0 %}
         <div class="alert alert-warning">
             {{ 'recipe_table_empty'|trans }}
@@ -19,10 +24,14 @@
             <tbody>
             {% dump(recipes) %}
             {% for recipe in recipes %}
-                <tr>
-                    <td>{{ recipe.name }}</td>
-                    <td>{{ recipe.humanType|trans }}</td>
-                    <td>{{ 'action_edit'|trans }}@TODO link to edit</td>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.humanType|trans }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_profile_recipe_edit', {'id': recipe.id}) }}">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                        {{ 'action_edit'|trans }}
+                    </a>
+                </td>
                 </tr>
             {% endfor %}
             </tbody>

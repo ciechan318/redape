@@ -6,6 +6,7 @@ administration_user_user: "Clients"
 
 label_password: "Password"
 label_password_confirmation: "Password confirmation"
+label_ingredientQuantities: "Ingredients"
 
 
 help_label_preparationType: "In minutes"
@@ -13,6 +14,9 @@ help_label_preparationType: "In minutes"
 
 action_submit: "Submit"
 action_add: "Add"
+action_create: "Add new"
+action_edit: "Edit"
+action_list: "List"
 
 
 recipe_type_breakfast: "Breakfast"
