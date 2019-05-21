@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -60,11 +61,22 @@ class Recipe
     private $type;
 
     /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(type="string", length=128, unique=true)
+     */
+    private $slug;
+
+    /**
      * @Assert\Valid()
      *
      * @ORM\OneToMany(targetEntity="App\Entity\IngredientQuantity", mappedBy="recipe", orphanRemoval=true, cascade={"persist"})
      */
     private $ingredientQuantities;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="recipeFavourites")
+     */
+    private $userFavourites;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="recipes")
@@ -75,6 +87,30 @@ class Recipe
     public function __construct()
     {
         $this->ingredientQuantities = new ArrayCollection();
+        $this->userFavourites = new ArrayCollection();
+    }
+
+    public function isLikedBy(?User $user): bool
+    {
+        return $this->getUserFavourites()->contains($user);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserFavourites()
+    {
+        return $this->userFavourites;
+    }
+
+    /**
+     * @param mixed $userFavourites
+     */
+    public function setUserFavourites($userFavourites): self
+    {
+        $this->userFavourites = $userFavourites;
+
+        return $this;
     }
 
     public function __toString()
@@ -204,6 +240,24 @@ class Recipe
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

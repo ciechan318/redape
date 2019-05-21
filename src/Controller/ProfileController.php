@@ -16,7 +16,7 @@ class ProfileController extends AbstractController
 {
     public function sidebar(ClientManager $clientManager)
     {
-        //render according to order of array
+        //sidebar is rendered in order given in array below
         $sidebarRoutes = [
             'profile_title_recipes_list' => 'app_profile_recipe_list',
             'profile_title_user_data' => 'app_profile_data_change',

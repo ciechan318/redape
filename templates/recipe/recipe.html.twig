@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm">
+            <h1>
+                {{ recipe.name }}
+            </h1>
+            <p>{{ recipe.humanType|trans }}</p>
+
+
+            <a href="{{ path('toggleRecipeLike', {'slug': recipe.slug }) }}"
+               class="{{ recipe.isLikedBy(user) ? 'fas' : 'far' }} fa-heart {{ user ? 'like-recipe' : '' }}">
+            </a>
+
+            <small class="like-recipe-count">{{ recipe.likes }}</small>
+
+            <h5>
+                {{ recipe.preparationTime }}
+            </h5>
+            <ul>
+                {% for ingredient in recipe.ingredientQuantities %}
+                    <li>
+                        {{ ingredient.ingredient.name }} - {{ ingredient.quantity }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <article>{{ recipe.description|raw }}</article>
+        </div>
+    </div>
+{% endblock %}

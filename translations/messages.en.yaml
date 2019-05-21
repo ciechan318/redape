@@ -41,3 +41,7 @@ recipe_table_header_name: "Name"
 recipe_table_header_type: "Type"
 recipe_table_header_actions: "Actions"
 recipe_table_empty: "You have not added any recipes yet! @TODO link to creation"
+
+
+title_redape: "R.E.D.A.P.E"
+title_login_to_add_to_favourites: "Login to add to favourites"
