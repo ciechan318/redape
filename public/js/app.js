@@ -29,5 +29,21 @@ jQuery(document).ready(function () {
         });
     });
 
+    $('.like-recipe').on('click', function (e) {
+        e.preventDefault();
+
+        var $link = $(e.currentTarget);
+        $link.toggleClass('far').toggleClass('fas');
+
+        $.ajax({
+            method: 'POST',
+            url: $link.attr('href')
+        }).done(function (response) {
+            $('.like-recipe-count').html(response.hearts);
+
+        })
+
+    })
+
 });
 

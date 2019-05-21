@@ -74,6 +74,11 @@ class Recipe
     private $ingredientQuantities;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="recipeFavourites")
+     */
+    private $userFavourites;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="recipes")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -82,6 +87,30 @@ class Recipe
     public function __construct()
     {
         $this->ingredientQuantities = new ArrayCollection();
+        $this->userFavourites = new ArrayCollection();
+    }
+
+    public function isLikedBy(?User $user): bool
+    {
+        return $this->getUserFavourites()->contains($user);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserFavourites()
+    {
+        return $this->userFavourites;
+    }
+
+    /**
+     * @param mixed $userFavourites
+     */
+    public function setUserFavourites($userFavourites): self
+    {
+        $this->userFavourites = $userFavourites;
+
+        return $this;
     }
 
     public function __toString()

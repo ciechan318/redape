@@ -9,7 +9,14 @@
                 {{ recipe.name }}
             </h1>
             <p>{{ recipe.humanType|trans }}</p>
-            <small>{{ recipe.likes }} @TODO action-add-to-favourites</small>
+
+
+            <a href="{{ path('toggleRecipeLike', {'slug': recipe.slug }) }}"
+               class="{{ recipe.isLikedBy(user) ? 'fas' : 'far' }} fa-heart {{ user ? 'like-recipe' : '' }}">
+            </a>
+
+            <small class="like-recipe-count">{{ recipe.likes }}</small>
+
             <h5>
                 {{ recipe.preparationTime }}
             </h5>
