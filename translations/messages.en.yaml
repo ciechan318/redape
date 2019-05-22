@@ -17,6 +17,7 @@ action_add: "Add"
 action_create: "Add new"
 action_edit: "Edit"
 action_list: "List"
+action_register: "Register"
 
 
 recipe_type_breakfast: "Breakfast"
@@ -45,3 +46,5 @@ recipe_table_empty: "You have not added any recipes yet! @TODO link to creation"
 
 title_redape: "R.E.D.A.P.E"
 title_login_to_add_to_favourites: "Login to add to favourites"
+title_register: "Register"
+title_login: "Login"

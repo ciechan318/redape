@@ -43,9 +43,9 @@ class ClientManager
         $this->entityManager->flush();
     }
 
-    public function saveUserPassword(User $user, ?bool $persist = true): void
+    public function saveUserPassword(User $user, string $plainPassword, ?bool $persist = true): void
     {
-        $user->setPassword($this->userPasswordEncoder->encodePassword($user, $user->getPassword()));
+        $user->setPassword($this->userPasswordEncoder->encodePassword($user, $plainPassword));
 
         if ($persist) {
             $this->entityManager->persist($user);
