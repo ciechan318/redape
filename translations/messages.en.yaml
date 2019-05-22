@@ -3,6 +3,10 @@ administration_recipe: "Recipes"
 administration_user_administrator: "Admins"
 administration_user_user: "Clients"
 
+link_Ingredient_list: "Ingredients"
+link_Recipe_list: "Recipes"
+link_User_list: "Users"
+
 
 label_email: "Email"
 label__remember_me: "Remember me"
@@ -14,7 +18,7 @@ label_name: "Name"
 label_description: "Description"
 label_preparationTime: "Preparation time"
 label_type: "Type"
-
+label_ingredientQuantities: "Ingredients"
 
 
 help_label_preparationType: "In minutes"
