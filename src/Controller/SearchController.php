@@ -13,7 +13,9 @@ class SearchController extends AbstractController
 {
 
     /**
-     * @Route("/search/{page}/{phrase}/{ingredients}", name="search")
+     * @Route("/search/{page}/{phrase}/{ingredients}", name="searchPhraseIngredients", requirements={"page"="\d+"})
+     * @Route("/search-ingredients/{page}/{ingredients}", name="searchIngredients", requirements={"page"="\d+"})
+     * @Route("/search-phrase/{page}/{phrase}", name="searchPhrase", requirements={"page"="\d+"})
      * @return Response
      */
     public function search(int $page, ?string $phrase, ?string $ingredients, RecipeManager $recipeManager)

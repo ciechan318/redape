@@ -24,7 +24,7 @@ class RecipeSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('phrase', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'placeholder_phrase']])
+            ->add('phrase', TextType::class, ['required' => false, 'label' => false, 'attr' => ['placeholder' => 'placeholder_phrase']])
             ->add('ingredients', ChoiceType::class, ['choices' => $this->recipeManager->getIngredientChoices(), 'expanded' => true, 'multiple' => true]);
     }
 

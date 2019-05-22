@@ -31,9 +31,21 @@ class AppController extends AbstractController
                 return $this->redirect($request->getUri());
             }
 
-            dump($form->getData());
+            $page = 1;
+            $phrase = $form['phrase']->getData();
+            $ingredients = implode(',', $form['ingredients']->getData());
 
-            return $this->redirectToRoute('search', ['page' => 1, 'phrase' => $form['phrase']->getData(), 'ingredients' => implode(',', $form['ingredients']->getData())]);
+            if (!empty($phrase) && !empty($ingredients)) {
+                return $this->redirectToRoute('searchPhraseIngredients', ['page' => $page, 'phrase' => $phrase, 'ingredients' => $ingredients]);
+            }
+
+            if (!empty($phrase)) {
+                return $this->redirectToRoute('searchPhrase', ['page' => $page, 'phrase' => $phrase]);
+            }
+            if (!empty($ingredients)) {
+                return $this->redirectToRoute('searchIngredients', ['page' => $page, 'ingredients' => $ingredients]);
+            }
+
 
         }
         return $this->render('homepage.html.twig', [

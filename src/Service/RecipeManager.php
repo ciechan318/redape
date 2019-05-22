@@ -17,6 +17,7 @@ class RecipeManager
     const SEARCH_KEY_PHRASE = 'search_phrase';
     const SEARCH_KEY_INGREDIENTS = 'search_ingredients';
     const SEARCH_RESULTS_PER_PAGE = 12;
+    const SEARCH_QUERY_ALIAS = 'x';
 
     /**
      * @var EntityManagerInterface
@@ -61,8 +62,7 @@ class RecipeManager
 
     public function search(int $page): array
     {
-        $queryBuilder = $this->recipeRepository->createQueryBuilder('r');
-        dump($this->session);
+        $queryBuilder = $this->recipeRepository->createQueryBuilder(self::SEARCH_QUERY_ALIAS);
 
         if ($this->getSearchPhrase()) {
             $this->searchByPhrase($queryBuilder);
@@ -72,10 +72,13 @@ class RecipeManager
             $this->searchByIngredients($queryBuilder);
         }
 
-        $this->paginate($queryBuilder); //@TODO page
+        $this->paginate($queryBuilder);
 
-        return $this->recipeRepository->findAll();
-        return []; //@TODO
+        $this->session->clear(); //@TODO remove after tests
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
     }
 
     public function getSearchPhrase(): ?string
@@ -85,7 +88,10 @@ class RecipeManager
 
     protected function searchByPhrase(QueryBuilder $queryBuilder): void
     {
-        //@TODO
+        $alias = self::SEARCH_QUERY_ALIAS;
+        $queryBuilder
+            ->andWhere($alias . '.name LIKE :phrase OR ' . $alias . '.description LIKE :phrase')
+            ->setParameter('phrase', '%' . $this->getSearchPhrase() . '%');
     }
 
     public function getSearchIngredients(): ?array
@@ -95,7 +101,11 @@ class RecipeManager
 
     protected function searchByIngredients(QueryBuilder $queryBuilder): void
     {
-        //@TODO
+        $alias = self::SEARCH_QUERY_ALIAS;
+        $queryBuilder
+            ->leftJoin($alias . '.ingredientQuantities', 'iq')
+            ->andWhere('iq.ingredient IN (:ingredients)')
+            ->setParameter('ingredients', $this->getSearchIngredients());
     }
 
     protected function paginate(QueryBuilder $queryBuilder): void
@@ -103,12 +113,12 @@ class RecipeManager
         //@TODO
     }
 
-    public function setPhrase(string $phrase): void
+    public function setPhrase(?string $phrase): void
     {
         $this->session->set(self::SEARCH_KEY_PHRASE, empty($phrase) ? null : $phrase);
     }
 
-    public function setIngredients(array $ingredients): void
+    public function setIngredients(?array $ingredients): void
     {
         $this->session->set(self::SEARCH_KEY_INGREDIENTS, empty($ingredients) ? null : $ingredients);
     }
