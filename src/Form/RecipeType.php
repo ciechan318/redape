@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Recipe;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +19,7 @@ class RecipeType extends AbstractType
             ->add('preparationTime', null, ['help' => 'help_label_preparationType'])
             ->add('type', ChoiceType::class, ['choices' => Recipe::getTypes()])
             ->add('ingredientQuantities', CollectionType::class, [
-                'label'=>false,
+                    'label' => false,
                     'by_reference' => false,
                     'allow_add' => true,
                     'allow_delete' => true,
@@ -31,6 +30,8 @@ class RecipeType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
+        parent::configureOptions($resolver);
+
         $resolver->setDefaults([
             'data_class' => Recipe::class,
         ]);

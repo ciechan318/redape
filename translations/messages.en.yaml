@@ -4,9 +4,17 @@ administration_user_administrator: "Admins"
 administration_user_user: "Clients"
 
 
+label_email: "Email"
+label__remember_me: "Remember me"
 label_password: "Password"
 label_password_confirmation: "Password confirmation"
-label_ingredientQuantities: "Ingredients"
+label_ingredient: "Ingredient"
+label_quantity: "Quantity"
+label_name: "Name"
+label_description: "Description"
+label_preparationTime: "Preparation time"
+label_type: "Type"
+
 
 
 help_label_preparationType: "In minutes"
@@ -18,6 +26,7 @@ action_create: "Add new"
 action_edit: "Edit"
 action_list: "List"
 action_register: "Register"
+action_login: "Login"
 
 
 recipe_type_breakfast: "Breakfast"
