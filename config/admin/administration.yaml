@@ -11,7 +11,7 @@ services:
             - App\Entity\IngredientQuantity
             - ~
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "administration_ingredient_quantity" }
+            - { name: sonata.admin, manager_type: orm, label: "administration_ingredient_quantity", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
     App\Admin\Administration\IngredientAdmin:
         class: App\Admin\Administration\IngredientAdmin
@@ -20,7 +20,7 @@ services:
             - App\Entity\Ingredient
             - ~
         tags:
-            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_ingredient" }
+            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_ingredient", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
     App\Admin\Administration\RecipeAdmin:
         class: App\Admin\Administration\RecipeAdmin
@@ -29,7 +29,7 @@ services:
             - App\Entity\Recipe
             - ~
         tags:
-            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_recipe" }
+            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_recipe", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
     App\Admin\Administration\UserAdministratorAdmin:
         class: App\Admin\Administration\UserAdministratorAdmin
@@ -38,7 +38,7 @@ services:
             - App\Entity\User
             - ~
         tags:
-            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_administrator" }
+            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_administrator", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
     App\Admin\Administration\UserUserAdmin:
         class: App\Admin\Administration\UserUserAdmin
@@ -47,4 +47,4 @@ services:
             - App\Entity\User
             - ~
         tags:
-            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_user" }
+            - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_user", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }

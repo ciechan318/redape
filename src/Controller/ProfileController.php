@@ -60,7 +60,7 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $clientManager->saveUserPassword($form->getData());
+            $clientManager->saveUserPassword($form->getData(), $form['plainPassword']->getData());
 
             $this->addFlash(FlashManager::FLASH_TYPE_SUCCESS, FlashManager::FLASH_MESSAGE_FORM_DATA_SAVED);
         }

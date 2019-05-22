@@ -20,7 +20,7 @@ abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
     public function prePersist($object)
     {
         parent::prePersist($object);
-        $this->clientManager->saveUserPassword($object, false);
+        $this->clientManager->saveUserPassword($object, $this->getForm()->get('plainPassword')->getData(), false);
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -28,9 +28,10 @@ abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
         $formMapper->add('email');
 
         if (!$this->getSubject()->getId()) {
-            $formMapper->add('password',
+            $formMapper->add('plainPassword',
                 RepeatedType::class,
-                ['type' => PasswordType::class,
+                ['mapped' => false,
+                    'type' => PasswordType::class,
                     'first_options' => ['label' => 'label_password'],
                     'second_options' => ['label' => 'label_password_confirmation']
                 ]);

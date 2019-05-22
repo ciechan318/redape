@@ -2,17 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\IngredientQuantity;
+use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-class IngredientQuantityType extends AbstractType
+class UserRegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ingredient')
-            ->add('quantity');
+            ->add('email')
+            ->add('plainPassword', PasswordType::class, ['mapped' => false, 'constraints' => [new NotBlank()], 'label' => 'label_password']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -20,7 +22,7 @@ class IngredientQuantityType extends AbstractType
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'data_class' => IngredientQuantity::class,
+            'data_class' => User::class,
         ]);
     }
 }

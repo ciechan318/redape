@@ -3,9 +3,21 @@ administration_recipe: "Recipes"
 administration_user_administrator: "Admins"
 administration_user_user: "Clients"
 
+link_Ingredient_list: "Ingredients"
+link_Recipe_list: "Recipes"
+link_User_list: "Users"
 
+
+label_email: "Email"
+label__remember_me: "Remember me"
 label_password: "Password"
 label_password_confirmation: "Password confirmation"
+label_ingredient: "Ingredient"
+label_quantity: "Quantity"
+label_name: "Name"
+label_description: "Description"
+label_preparationTime: "Preparation time"
+label_type: "Type"
 label_ingredientQuantities: "Ingredients"
 
 
@@ -17,6 +29,8 @@ action_add: "Add"
 action_create: "Add new"
 action_edit: "Edit"
 action_list: "List"
+action_register: "Register"
+action_login: "Login"
 
 
 recipe_type_breakfast: "Breakfast"
@@ -45,3 +59,5 @@ recipe_table_empty: "You have not added any recipes yet! @TODO link to creation"
 
 title_redape: "R.E.D.A.P.E"
 title_login_to_add_to_favourites: "Login to add to favourites"
+title_register: "Register"
+title_login: "Login"
