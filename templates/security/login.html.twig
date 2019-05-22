@@ -3,12 +3,14 @@
 {% block title %}{{ 'title_login'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="col-sm-12">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-            {{ 'action_login'|trans }}
-        </button>
-        {{ form_end(form) }}
+    <div class="row">
+        <div class="col-sm">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                {{ 'action_login'|trans }}
+            </button>
+            {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

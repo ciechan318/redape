@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title_search'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm">
+            {% if recipes|length == 0 %}
+                <div class="alert alert-warning">
+                    {{ 'search_no_results'|trans }}
+                </div>
+            {% else %}
+                {% for row in recipes|batch(3) %}
+                    <div class="row">
+                        {% for recipe in row %}
+                            <div class="col-sm-4">
+                                {% include 'search/resultTile.html.twig' %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
