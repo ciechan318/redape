@@ -22,6 +22,7 @@ label_ingredientQuantities: "Ingredients"
 label_ingredients: "Ingredients"
 label_previous: "Previous"
 label_next: "Next"
+label_user: "User"
 
 
 placeholder_phrase: "Search..."
