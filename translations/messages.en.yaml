@@ -70,6 +70,7 @@ title_login_to_add_to_favourites: "Login to add to favourites"
 title_register: "Register"
 title_login: "Login"
 title_search: "Search"
+title_results_quantity: "Found %quantity% result(s)"
 
 
 search_no_results: "No recipes were found!"

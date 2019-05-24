@@ -10,6 +10,10 @@
                     {{ 'search_no_results'|trans }}
                 </div>
             {% else %}
+                <h3>
+                    {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
+                </h3>
+
                 {% for row in pagination|batch(3) %}
                     <div class="row">
                         {% for recipe in row %}
