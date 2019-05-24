@@ -1,6 +1,11 @@
 jQuery(document).ready(function () {
 
-    jQuery('.add-collection-widget').click(function (e) {
+    $('.chosen-select').chosen({
+            placeholder_text_multiple: "Select multiple...",
+        }
+    );
+
+    $('.add-collection-widget').click(function (e) {
         var list = jQuery(jQuery(this).attr('data-list-selector'));
         var counter = list.data('widget-counter') | list.children().length;
 
