@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\IngredientQuantityRepository")
+ *
+ * @TODO custom validator for the same ingredients in same recipe (since UniqueEntity works only on database layer)
  */
 class IngredientQuantity
 {
@@ -25,6 +27,8 @@ class IngredientQuantity
     private $quantity;
 
     /**
+     * @Assert\NotBlank()
+     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Recipe", inversedBy="ingredientQuantities")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */

@@ -8,7 +8,7 @@
         {{ 'action_create'|trans }}
     </a>
 
-    {% if recipes|length == 0 %}
+    {% if  pagination.getTotalItemCount() == 0 %}
         <div class="alert alert-warning">
             {{ 'recipe_table_empty'|trans }}
         </div>
@@ -22,8 +22,7 @@
             </tr>
             </thead>
             <tbody>
-            {% dump(recipes) %}
-            {% for recipe in recipes %}
+            {% for recipe in pagination %}
                 <td>{{ recipe.name }}</td>
                 <td>{{ recipe.humanType|trans }}</td>
                 <td>
@@ -36,5 +35,8 @@
             {% endfor %}
             </tbody>
         </table>
+
+     {{ knp_pagination_render(pagination) }}
+
     {% endif %}
 {% endblock %}

@@ -20,6 +20,8 @@ label_preparationTime: "Preparation time"
 label_type: "Type"
 label_ingredientQuantities: "Ingredients"
 label_ingredients: "Ingredients"
+label_previous: "Previous"
+label_next: "Next"
 
 
 placeholder_phrase: "Search..."

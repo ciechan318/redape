@@ -7,6 +7,7 @@ use App\Form\ProfileDataType;
 use App\Repository\RecipeRepository;
 use App\Service\ClientManager;
 use App\Service\FlashManager;
+use App\Service\RecipeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -18,10 +19,10 @@ class ProfileController extends AbstractController
     {
         //sidebar is rendered in order given in array below
         $sidebarRoutes = [
-            'profile_title_recipes_list' => 'app_profile_recipe_list',
-            'profile_title_user_data' => 'app_profile_data_change',
-            'profile_title_password_change' => 'app_profile_password_change',
-            'profile_title_logout' => 'app_logout',
+            'profile_title_recipes_list' => ['routeName' => 'app_profile_recipe_list', 'routeParams' => ['page' => 1]],
+            'profile_title_user_data' => ['routeName' => 'app_profile_data_change', 'routeParams' => []],
+            'profile_title_password_change' => ['routeName' => 'app_profile_password_change', 'routeParams' => []],
+            'profile_title_logout' => ['routeName' => 'app_logout', 'routeParams' => []],
         ];
 
         return $this->render('profile/sidebar.html.twig', [
@@ -71,14 +72,18 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/profile/recipes/list", name="app_profile_recipe_list")
+     * @Route("/profile/recipes/list/{page}", name="app_profile_recipe_list")
      */
-    public function recipeList(RecipeRepository $recipeRepository, ClientManager $clientManager)
+    public function recipeList(int $page, ClientManager $clientManager, RecipeManager $recipeManager)
     {
-        $recipes = $recipeRepository->findBy(['user' => $clientManager->getUser()]); //@TODO pagination and use SearchManager for optimization
+        $pagination = $recipeManager->getUserRecipes($clientManager->getUser(), $page);
 
         return $this->render('profile/recipeList.html.twig', [
-            'recipes' => $recipes,
+            'pagination' => $pagination,
+        ]);
+
+        return $this->render('profile/recipeList.html.twig', [
+            'pagination' => $pagination,
         ]);
     }
 

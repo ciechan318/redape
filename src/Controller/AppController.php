@@ -6,7 +6,6 @@ namespace App\Controller;
 
 use App\Form\RecipeSearchType;
 use App\Service\FlashManager;
-use App\Service\RecipeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +17,7 @@ class AppController extends AbstractController
      * @Route("/", name="homepage")
      * @return Response
      */
-    public function homepage(Request $request, RecipeManager $recipeManager, FlashManager $flashManager)
+    public function homepage(Request $request)
     {
         $form = $this->createForm(RecipeSearchType::class);
 

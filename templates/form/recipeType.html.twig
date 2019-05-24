@@ -24,7 +24,7 @@
 
 {{ form_end(form) }}
 
-<a class="btn btn-primary" href="{{ path('app_profile_recipe_list') }}">
+<a class="btn btn-primary" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">
     <i class="fa fa-list" aria-hidden="true"></i>
     {{ 'action_list'|trans }}
 </a>

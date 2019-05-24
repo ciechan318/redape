@@ -8,6 +8,8 @@ use App\Repository\IngredientRepository;
 use App\Repository\RecipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
+use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
@@ -35,13 +37,18 @@ class RecipeManager
      * @var IngredientRepository
      */
     private $ingredientRepository;
+    /**
+     * @var PaginatorInterface
+     */
+    private $paginator;
 
-    public function __construct(SessionInterface $session, EntityManagerInterface $entityManager, RecipeRepository $recipeRepository, IngredientRepository $ingredientRepository)
+    public function __construct(SessionInterface $session, EntityManagerInterface $entityManager, PaginatorInterface $paginator, RecipeRepository $recipeRepository, IngredientRepository $ingredientRepository)
     {
         $this->entityManager = $entityManager;
         $this->session = $session;
         $this->recipeRepository = $recipeRepository;
         $this->ingredientRepository = $ingredientRepository;
+        $this->paginator = $paginator;
     }
 
     public function getIngredientChoices(): array
@@ -60,7 +67,7 @@ class RecipeManager
         return $results;
     }
 
-    public function search(int $page): array
+    public function search(int $page): SlidingPagination
     {
         $queryBuilder = $this->recipeRepository->createQueryBuilder(self::SEARCH_QUERY_ALIAS);
 
@@ -72,13 +79,7 @@ class RecipeManager
             $this->searchByIngredients($queryBuilder);
         }
 
-        $this->paginate($queryBuilder);
-
-        $this->session->clear(); //@TODO remove after tests
-
-        return $queryBuilder
-            ->getQuery()
-            ->getResult();
+        return $this->paginate($queryBuilder, $page);
     }
 
     public function getSearchPhrase(): ?string
@@ -102,15 +103,19 @@ class RecipeManager
     protected function searchByIngredients(QueryBuilder $queryBuilder): void
     {
         $alias = self::SEARCH_QUERY_ALIAS;
+
         $queryBuilder
             ->leftJoin($alias . '.ingredientQuantities', 'iq')
             ->andWhere('iq.ingredient IN (:ingredients)')
-            ->setParameter('ingredients', $this->getSearchIngredients());
+            ->addGroupBy($alias . '.id')
+            ->andHaving('count(iq.id) = :ingredientQuantity')
+            ->setParameter('ingredients', $this->getSearchIngredients())
+            ->setParameter('ingredientQuantity', count($this->getSearchIngredients()));
     }
 
-    protected function paginate(QueryBuilder $queryBuilder): void
+    protected function paginate(QueryBuilder $queryBuilder, int $page): SlidingPagination
     {
-        //@TODO
+        return $this->paginator->paginate($queryBuilder, $page, self::SEARCH_RESULTS_PER_PAGE, ['wrap-queries' => true]);
     }
 
     public function setPhrase(?string $phrase): void
@@ -143,6 +148,15 @@ class RecipeManager
     {
         $this->entityManager->persist($recipe);
         $this->entityManager->flush();
+    }
+
+    public function getUserRecipes(User $user, int $page): SlidingPagination
+    {
+        $queryBuilder = $this->recipeRepository->createQueryBuilder('r')
+            ->andWhere('r.user = :user')
+            ->setParameter('user', $user);
+
+        return $this->paginate($queryBuilder, $page);
     }
 
 

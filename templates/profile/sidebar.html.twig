@@ -1,6 +1,6 @@
 <ul>
-    {% for name, route in sidebarRoutes %}
-        <li><a class="link link-black" href="{{ path(route) }}">
+    {% for name, routeData in sidebarRoutes %}
+        <li><a class="link link-black" href="{{ path(routeData['routeName'], routeData['routeParams']) }}">
                 {{ name|trans }}
             </a>
         </li>

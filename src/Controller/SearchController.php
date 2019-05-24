@@ -20,14 +20,13 @@ class SearchController extends AbstractController
      */
     public function search(int $page, ?string $phrase, ?string $ingredients, RecipeManager $recipeManager)
     {
-
         $recipeManager->setPhrase($phrase);
         $recipeManager->setIngredients(explode(',', $ingredients));
 
-        $recipes = $recipeManager->search($page);
+        $pagination = $recipeManager->search($page);
 
         return $this->render('search/search.html.twig', [
-            'recipes' => $recipes,
+            'pagination' => $pagination,
         ]);
     }
 }
