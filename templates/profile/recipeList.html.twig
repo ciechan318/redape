@@ -8,22 +8,24 @@
         {{ 'action_create'|trans }}
     </a>
 
-    {% if recipes|length == 0 %}
+    {% if pagination.getTotalItemCount() == 0 %}
         <div class="alert alert-warning">
             {{ 'recipe_table_empty'|trans }}
         </div>
     {% else %}
+        <h3>
+            {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
+        </h3>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ 'recipe_table_header_name'|trans }}</th>
-                <th>{{ 'recipe_table_header_type'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_name'|trans, 'r.name') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_type'|trans, 'r.type') }}</th>
                 <th>{{ 'recipe_table_header_actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
-            {% dump(recipes) %}
-            {% for recipe in recipes %}
+            {% for recipe in pagination %}
                 <td>{{ recipe.name }}</td>
                 <td>{{ recipe.humanType|trans }}</td>
                 <td>
@@ -36,5 +38,8 @@
             {% endfor %}
             </tbody>
         </table>
+
+     {{ knp_pagination_render(pagination) }}
+
     {% endif %}
 {% endblock %}

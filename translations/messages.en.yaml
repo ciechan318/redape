@@ -19,6 +19,13 @@ label_description: "Description"
 label_preparationTime: "Preparation time"
 label_type: "Type"
 label_ingredientQuantities: "Ingredients"
+label_ingredients: "Ingredients"
+label_previous: "Previous"
+label_next: "Next"
+label_user: "User"
+
+
+placeholder_phrase: "Search..."
 
 
 help_label_preparationType: "In minutes"
@@ -31,6 +38,7 @@ action_edit: "Edit"
 action_list: "List"
 action_register: "Register"
 action_login: "Login"
+action_search: "Search"
 
 
 recipe_type_breakfast: "Breakfast"
@@ -41,6 +49,7 @@ recipe_type_other: "Other"
 
 
 flash_message_form_data_saved: "Submitted data was saved"
+flash_message_search_empty: "To search for recipes please set at least one parameter"
 
 
 profile_title_user_data: "Manage your data"
@@ -61,3 +70,8 @@ title_redape: "R.E.D.A.P.E"
 title_login_to_add_to_favourites: "Login to add to favourites"
 title_register: "Register"
 title_login: "Login"
+title_search: "Search"
+title_results_quantity: "Found %quantity% result(s)"
+
+
+search_no_results: "No recipes were found!"

@@ -6,6 +6,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
+        "harvesthq/chosen": "^1.8",
+        "knplabs/knp-paginator-bundle": "^3.0",
         "sonata-project/admin-bundle": "^3.48",
         "sonata-project/doctrine-orm-admin-bundle": "^3.9",
         "stof/doctrine-extensions-bundle": "^1.3",

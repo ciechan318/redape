@@ -209,6 +209,16 @@ class Recipe
         return $this->ingredientQuantities;
     }
 
+    /**
+     * @param mixed $ingredientQuantities
+     */
+    public function setIngredientQuantities($ingredientQuantities): self
+    {
+        $this->ingredientQuantities = $ingredientQuantities;
+
+        return $this;
+    }
+
     public function addIngredientQuantity(IngredientQuantity $ingredientQuantity): self
     {
         if (!$this->ingredientQuantities->contains($ingredientQuantity)) {

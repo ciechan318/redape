@@ -19,8 +19,9 @@ final class IngredientQuantityAdmin extends AbstractAdministrationAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('ingredient', ModelType::class);
-        $formMapper->add('quantity');
+        $formMapper
+            ->add('ingredient', ModelType::class)
+            ->add('quantity');
     }
 
 }

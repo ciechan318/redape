@@ -54,6 +54,7 @@ class RecipeController extends AbstractController
         }
 
         if (!$clientManager->getUser()) {
+            //@TODO refactor possible(?) - hide this route behind firewall - it should auto-redirect to login form
             $this->saveTargetPath($session, $firewallMap->getFirewallConfig($request)->getName(), $this->generateUrl('recipe', ['slug' => $slug]));
             return $this->redirectToRoute('app_login');
         }
