@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    app.locales:
+        - 'en'
+        - 'pl'
 
 services:
     # default configuration for services in *this* file
@@ -13,6 +16,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             $firewallMap: '@security.firewall.map'
+            $appLocales: '%app.locales%'
 
 
 

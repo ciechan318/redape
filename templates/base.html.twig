@@ -11,39 +11,41 @@
               integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
               crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/chosen.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {% endblock %}
 </head>
 <body>
 <div class="container-fluid">
-    {% block body %}
-{# @TODO navbar with login || logout button (with name if logged-in) and language changer #}
+    <div id="data-locale" data-locale="{{ app.request.locale }}"></div>
+    {% block navbar %}
+        {% include 'navbar.html.twig' %}
     {% endblock %}
-</div>
+    {% block body %}
+    {% endblock %}
 
-{# the same types are defined in App\Service\FlashManager; to reduce overhead better to define them here again #}
-{% set types = ['success', 'warning', 'error'] %}
-{% for type in types %}
-    {% for message in app.flashes(type) %}
-        <div class="{{ 'alert alert-'~type }}">
-            {{ message|trans }}
-        </div>
+    {# the same types are defined in App\Service\FlashManager; to reduce overhead better to define them here again #}
+    {% set types = ['success', 'warning', 'error'] %}
+    {% for type in types %}
+        {% for message in app.flashes(type) %}
+            <div class="{{ 'alert alert-'~type }}">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/chosen.jquery.js') }}"></script>
-    <script>
-        $('.dropdown-toggle').dropdown();
-    </script>
-{% endblock %}
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/chosen.jquery.js') }}"></script>
+        <script>
+            $('.dropdown-toggle').dropdown();
+        </script>
+    {% endblock %}
 </body>
 </html>

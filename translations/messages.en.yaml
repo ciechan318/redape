@@ -7,6 +7,11 @@ link_Ingredient_list: "Ingredients"
 link_Recipe_list: "Recipes"
 link_User_list: "Users"
 
+navbar_login: "Login"
+navbar_logout: "Logout"
+navbar_profile: "Account"
+navbar_change_language: "Languages"
+
 
 label__remember_me: "Remember me"
 label__action: "Actions"
@@ -41,7 +46,7 @@ action_register: "Register"
 action_login: "Login"
 action_search: "Search"
 action_changePassword: "Change password"
-action_logout: Logout
+action_logout: "Logout"
 
 
 recipe_type_breakfast: "Breakfast"
@@ -66,11 +71,10 @@ profile_title_logout: "Logout"
 recipe_table_header_name: "Name"
 recipe_table_header_type: "Type"
 recipe_table_header_actions: "Actions"
-recipe_table_empty: "You have not added any recipes yet! @TODO link to creation"
+recipe_table_empty: "You have not added any recipes yet!"
 
 
 title_redape: "R.E.D.A.P.E"
-title_login_to_add_to_favourites: "Login to add to favourites"
 title_register: "Register"
 title_login: "Login"
 title_search: "Search"
