@@ -1,5 +1,6 @@
 sonata_admin:
-    title: 'Admin Panel'
+    title: 'Panel'
+    title_logo: '/images/icon.png'
     dashboard:
         groups:
             main:
@@ -11,7 +12,7 @@ sonata_admin:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
     templates:
-        edit: 'admin/base_edit.html.twig'
+        layout: 'admin/layout.html.twig'
 
 sonata_block:
     blocks:

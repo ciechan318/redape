@@ -58,6 +58,6 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('user', null, ['admin_code' => UserUserAdmin::class])
-            ->add('humanType', null, ['template' => 'admin/trans.html.twig', 'label' => 'label_type']);
+            ->add('humanType', null, ['template' => 'admin/list_trans.html.twig', 'label' => 'label_type']);
     }
 }

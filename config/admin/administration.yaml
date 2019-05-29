@@ -45,6 +45,6 @@ services:
         arguments:
             - ~
             - App\Entity\User
-            - ~
+            - App\Controller\CRUDUserController
         tags:
             - { name: sonata.admin, manager_type: orm, group: user, label: "administration_user_user", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }

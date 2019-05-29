@@ -3,6 +3,8 @@
 
 namespace App\Admin\Administration;
 
+use Sonata\AdminBundle\Route\RouteCollection;
+
 final class UserUserAdmin extends AbstractUserAdmin
 {
     protected $baseRouteName = 'admin_app_user_user';

@@ -1,0 +1,9 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+ {% block sonata_side_nav %}
+    {{ parent() }}
+     <div class="text-center">
+         <a href="{{ path('app_logout') }}"><i class="fa fa-power-off"></i> {{ 'action_logout'|trans }}</a>
+     </div>
+
+ {% endblock sonata_side_nav %}
