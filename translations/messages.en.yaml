@@ -41,6 +41,7 @@ action_register: "Register"
 action_login: "Login"
 action_search: "Search"
 action_changePassword: "Change password"
+action_logout: Logout
 
 
 recipe_type_breakfast: "Breakfast"

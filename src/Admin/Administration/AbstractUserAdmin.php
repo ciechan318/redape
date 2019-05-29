@@ -13,8 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
 {
 
-//    @TODO logout action for admin
-
     const ROUTE_PREFIX = '/users/';
 
     public function prePersist($object)
