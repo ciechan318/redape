@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
+use App\Validator\Constraints as AppAssert;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\IngredientQuantityRepository")
- *
- * @TODO custom validator for the same ingredients in same recipe (since UniqueEntity works only on database layer)
+ * @AppAssert\IngredientQuantity()
  */
 class IngredientQuantity
 {
@@ -44,7 +44,7 @@ class IngredientQuantity
 
     public function __toString()
     {
-        return (string) 'IngredientQuantity';
+        return (string)'IngredientQuantity';
     }
 
     public function getId(): ?int

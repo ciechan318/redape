@@ -1,1 +1,2 @@
 validator_authentication_error: "An error occurred during authentication. Please make sure your password is correct"
+validator_ingredient_already_present_in_recipe: "This recipe already has this ingredient"
