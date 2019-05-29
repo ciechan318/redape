@@ -1,8 +1,20 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
 
-    $('.chosen-select').chosen({
+    var chosenOptions = {
+        en: {
             placeholder_text_multiple: "Select multiple...",
+            no_results_text: "No results!",
+        },
+        pl: {
+            placeholder_text_multiple: "Wybierz wiele...",
+            no_results_text: "Brak wyników!",
         }
+    };
+
+    const locale = $('#data-locale').data('locale');
+
+    $('.chosen-select').chosen(
+        chosenOptions[locale]
     );
 
     $('.add-collection-widget').click(function (e) {

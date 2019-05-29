@@ -16,8 +16,9 @@
 </head>
 <body>
 <div class="container-fluid">
+    <div id="data-locale" data-locale="{{ app.request.locale }}"></div>
     {% block body %}
-{# @TODO navbar with login || logout button (with name if logged-in) and language changer #}
+        {# @TODO navbar with login || logout button (with name if logged-in) and language changer #}
     {% endblock %}
 </div>
 
