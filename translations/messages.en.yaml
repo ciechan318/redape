@@ -8,8 +8,9 @@ link_Recipe_list: "Recipes"
 link_User_list: "Users"
 
 
-label_email: "Email"
 label__remember_me: "Remember me"
+label__action: "Actions"
+label_email: "Email"
 label_password: "Password"
 label_password_confirmation: "Password confirmation"
 label_ingredient: "Ingredient"
@@ -39,6 +40,7 @@ action_list: "List"
 action_register: "Register"
 action_login: "Login"
 action_search: "Search"
+action_changePassword: "Change password"
 
 
 recipe_type_breakfast: "Breakfast"
