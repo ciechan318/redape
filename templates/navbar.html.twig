@@ -1,0 +1,37 @@
+{% block body %}
+    <div class="row">
+        <div class="col-sm">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{{ path('homepage') }}">{{ 'title_redape'|trans }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            {% if app.user %}
+                                <a class="nav-link" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">{{ 'navbar_profile'|trans }}</a>
+                                <a class="nav-link" href="{{ path('app_logout') }}">{{ 'navbar_logout'|trans }}</a>
+                            {% else %}
+                                <a class="nav-link" href="{{ path('app_login') }}">{{ 'navbar_login'|trans }}</a>
+                            {% endif %}
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarLanguageChooser"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ 'navbar_change_language'|trans }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarLanguageChooser">
+                                {% for locale in supportedLocales %}
+                                    <a class="dropdown-item"
+                                       href="{{ path('changeLocale', {'locale': locale}) }}">{{ locale|upper }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,84 @@
+administration_ingredient: "Składniki"
+administration_recipe: "Przepisy"
+administration_user_administrator: "Administratorzy"
+administration_user_user: "Użytkownicy"
+
+link_Ingredient_list: "Składniki"
+link_Recipe_list: "Przepisy"
+link_User_list: "Użytkownicy"
+
+navbar_login: "Login"
+navbar_logout: "Wyloguj"
+navbar_profile: "Konto"
+navbar_change_language: "Język"
+
+
+label__remember_me: "Zapamiętaj na tym komputerze"
+label__action: "Akcje"
+label_email: "Email"
+label_password: "Hasło"
+label_password_confirmation: "Hasło (potwierdzenie)"
+label_ingredient: "Składnik"
+label_quantity: "Ilość"
+label_name: "Nazwa"
+label_description: "Opis"
+label_preparationTime: "Czas przygotowania"
+label_type: "Typ"
+label_ingredientQuantities: "Składniki"
+label_ingredients: "Składniki"
+label_previous: "Wstecz"
+label_next: "Dalej"
+label_user: "Użytkownik"
+
+
+placeholder_phrase: "Szukaj..."
+
+
+help_label_preparationType: "W minutach"
+
+
+action_submit: "Wyślij"
+action_add: "Dodaj"
+action_create: "Dodaj nowy"
+action_edit: "Edytuj"
+action_list: "Lista"
+action_register: "Zarejestruj"
+action_login: "Login"
+action_search: "Szukaj"
+action_changePassword: "Zmień hasło"
+action_logout: "Wyloguj"
+
+
+recipe_type_breakfast: "Śniadanie"
+recipe_type_dinner: "Obiad"
+recipe_type_snack: "Przekąska"
+recipe_type_festive: "Uroczyste"
+recipe_type_other: "Inne"
+
+
+flash_message_form_data_saved: "Dane zostały zapisane"
+flash_message_search_empty: "Ustaw przynajmniej jeden parametr wyszukiwania"
+
+
+profile_title_user_data: "Twoje dane"
+profile_title_password_change: "Zmień hasło"
+profile_title_recipes_list: "Twoje przepisy"
+profile_title_recipes_create: "Stwórz nowy przepis"
+profile_title_recipes_edit: "Edytuj przepis"
+profile_title_logout: "Wyloguj"
+
+
+recipe_table_header_name: "Nazwa"
+recipe_table_header_type: "Typ"
+recipe_table_header_actions: "Akcje"
+recipe_table_empty: "Nie dodano żadnych przepisów!"
+
+
+title_redape: "R.E.D.A.P.E"
+title_register: "Zarejestruj się"
+title_login: "Login"
+title_search: "Szukaj"
+title_results_quantity: "Znaleziono: %quantity%"
+
+
+search_no_results: "Nie znaleziono przepisów!"
