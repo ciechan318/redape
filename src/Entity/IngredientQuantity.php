@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Validator\Constraints as AppAssert;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,6 +21,8 @@ class IngredientQuantity
     private $id;
 
     /**
+     * @Gedmo\Translatable()
+     * 
      * @Assert\NotBlank()
      *
      * @ORM\Column(type="string", length=255)
