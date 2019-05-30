@@ -18,10 +18,10 @@ class SearchController extends AbstractController
      * @Route("/search-phrase/{page}/{phrase}", name="searchPhrase", requirements={"page"="\d+"})
      * @return Response
      */
-    public function search(int $page, ?string $phrase, ?string $ingredients, RecipeManager $recipeManager)
+    public function search(int $page, RecipeManager $recipeManager,  ?string $phrase = null, ?string $ingredients = null)
     {
-        $recipeManager->setPhrase($phrase);
-        $recipeManager->setIngredients(explode(',', $ingredients));
+        $recipeManager->setPhrase($phrase ? $phrase : null);
+        $recipeManager->setIngredients($ingredients ? explode(',', $ingredients) : null);
 
         $pagination = $recipeManager->search($page);
 

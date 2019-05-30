@@ -43,6 +43,7 @@ class AppController extends AbstractController
             if (!empty($phrase)) {
                 return $this->redirectToRoute('searchPhrase', ['page' => $page, 'phrase' => $phrase]);
             }
+
             if (!empty($ingredients)) {
                 return $this->redirectToRoute('searchIngredients', ['page' => $page, 'ingredients' => $ingredients]);
             }
