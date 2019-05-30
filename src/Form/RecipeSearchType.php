@@ -25,7 +25,7 @@ class RecipeSearchType extends AbstractType
     {
         $builder
             ->add('phrase', TextType::class, ['required' => false, 'label' => false, 'attr' => ['placeholder' => 'placeholder_phrase']])
-            ->add('ingredients', ChoiceType::class, ['choices' => $this->recipeManager->getIngredientChoices(), 'multiple' => true, 'attr' => ['class' => 'chosen-select']]);
+            ->add('ingredients', ChoiceType::class, ['required' => false, 'choices' => $this->recipeManager->getIngredientChoices(), 'multiple' => true, 'attr' => ['class' => 'chosen-select']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

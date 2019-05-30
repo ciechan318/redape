@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,6 +21,8 @@ class Ingredient
     private $id;
 
     /**
+     * @Gedmo\Translatable()
+     *
      * @Assert\NotBlank()
      *
      * @ORM\Column(type="string", length=255)
@@ -38,12 +41,7 @@ class Ingredient
 
     public function __toString()
     {
-        return (string) $this->getName();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
+        return (string)$this->getName();
     }
 
     public function getName(): ?string
@@ -56,6 +54,11 @@ class Ingredient
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     /**

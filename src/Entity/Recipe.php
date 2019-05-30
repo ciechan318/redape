@@ -27,6 +27,8 @@ class Recipe
     private $id;
 
     /**
+     * @Gedmo\Translatable()
+     *
      * @Assert\NotBlank()
      *
      * @ORM\Column(type="string", length=255)
@@ -34,6 +36,8 @@ class Recipe
     private $name;
 
     /**
+     * @Gedmo\Translatable()
+     *
      * @Assert\NotBlank()
      *
      * @ORM\Column(type="text")

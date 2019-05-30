@@ -7,7 +7,9 @@ use App\Entity\User;
 use App\Repository\IngredientRepository;
 use App\Repository\RecipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
+use Gedmo\Translatable\Query\TreeWalker\TranslationWalker;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -58,6 +60,7 @@ class RecipeManager
         $ingredients = $this->ingredientRepository->createQueryBuilder('i', 'i.name')
             ->select('i.id, i.name')
             ->getQuery()
+            ->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class)
             ->getArrayResult();
 
         foreach ($ingredients as $key => $ingredientData) {
