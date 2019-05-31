@@ -29,6 +29,7 @@ label_ingredients: "Ingredients"
 label_previous: "Previous"
 label_next: "Next"
 label_user: "User"
+label_imageFile: "Image"
 
 
 placeholder_phrase: "Search..."

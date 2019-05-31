@@ -1,0 +1,6 @@
+{% extends '@SonataAdmin/CRUD/base_list_field.html.twig' %}
+{% block field %}
+
+    <img src="{{ vich_uploader_asset(object, 'imageFile') ? vich_uploader_asset(object, 'imageFile') | imagine_filter('admin_thumbnail') : '' }}"
+         alt=""/>
+{% endblock %}

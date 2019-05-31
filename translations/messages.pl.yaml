@@ -29,6 +29,7 @@ label_ingredients: "Składniki"
 label_previous: "Wstecz"
 label_next: "Dalej"
 label_user: "Użytkownik"
+label_imageFile: "Zdjęcie"
 
 
 placeholder_phrase: "Szukaj..."
