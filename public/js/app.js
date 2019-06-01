@@ -17,6 +17,8 @@ $(document).ready(function () {
         chosenOptions[locale]
     );
 
+    $("#recipe-images-gallery").unitegallery();
+
     $('.add-collection-widget').click(function (e) {
         var list = jQuery(jQuery(this).attr('data-list-selector'));
         var counter = list.data('widget-counter') | list.children().length;

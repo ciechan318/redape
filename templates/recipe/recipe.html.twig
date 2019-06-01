@@ -8,6 +8,16 @@
             <h1>
                 {{ recipe.name }}
             </h1>
+
+            <div id="recipe-images-gallery" style="display:none;">
+                {% for image in recipe.getImages() %}
+                    <img alt="Image 1 Title" src="thumbs/image1.jpg"
+                         data-image="images/image1.jpg"
+                         data-description="Image 1 Description">
+
+                {% endfor %}
+            </div>
+
             <p>{{ recipe.humanType|trans }}</p>
 
 
@@ -26,14 +36,6 @@
                         {{ ingredient.ingredient.name }} - {{ ingredient.quantity }}
                     </li>
                 {% endfor %}
-            </ul>
-            <ul>
-                @TODO gallery with images
-{#                {% for ingredient in recipe.ingredientQuantities %}#}
-{#                    <li>#}
-{#                        {{ ingredient.ingredient.name }} - {{ ingredient.quantity }}#}
-{#                    </li>#}
-{#                {% endfor %}#}
             </ul>
             <article>{{ recipe.description|raw }}</article>
         </div>

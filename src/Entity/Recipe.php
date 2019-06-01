@@ -79,6 +79,7 @@ class Recipe
 
     /**
      * @Assert\Valid()
+     * @Assert\Count(max="12")
      *
      * @ORM\OneToMany(targetEntity="App\Entity\RecipeImage", mappedBy="recipe", orphanRemoval=true, cascade={"persist", "remove"})
      */
