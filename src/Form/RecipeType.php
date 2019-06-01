@@ -25,6 +25,13 @@ class RecipeType extends AbstractType
                     'allow_delete' => true,
                     'entry_type' => IngredientQuantityType::class,
                 ]
+            ) ->add('images', CollectionType::class, [
+                    'label' => false,
+                    'by_reference' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'entry_type' => RecipeImageType::class,
+                ]
             );
     }
 

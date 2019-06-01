@@ -30,7 +30,7 @@ label_previous: "Previous"
 label_next: "Next"
 label_user: "User"
 label_imageFile: "Image"
-action_homepage: "Back to Homepage"
+label_images: "Images"
 
 
 placeholder_phrase: "Search..."
@@ -49,6 +49,7 @@ action_login: "Login"
 action_search: "Search"
 action_changePassword: "Change password"
 action_logout: "Logout"
+action_homepage: "Back to Homepage"
 
 
 recipe_type_breakfast: "Breakfast"

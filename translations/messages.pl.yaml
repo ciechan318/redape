@@ -30,6 +30,7 @@ label_previous: "Wstecz"
 label_next: "Dalej"
 label_user: "Użytkownik"
 label_imageFile: "Zdjęcie"
+label_images: "Zdjęcia"
 
 
 placeholder_phrase: "Szukaj..."
