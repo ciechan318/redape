@@ -33,10 +33,10 @@ label_imageFile: "Image"
 label_images: "Images"
 
 
-placeholder_phrase: "Search..."
-
-
 help_label_preparationType: "In minutes"
+
+
+placeholder_phrase: "Search..."
 
 
 action_submit: "Submit"
@@ -50,6 +50,7 @@ action_search: "Search"
 action_changePassword: "Change password"
 action_logout: "Logout"
 action_homepage: "Back to Homepage"
+action_show: "Show"
 
 
 recipe_type_breakfast: "Breakfast"

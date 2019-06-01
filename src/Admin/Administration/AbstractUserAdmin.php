@@ -65,7 +65,7 @@ abstract class AbstractUserAdmin extends AbstractAdministrationAdmin
                 'actions' => [
                     'edit' => [],
                     'delete' => [],
-                    'clone' => [
+                    'changePassword' => [
                         'template' => 'admin/list__action_changePassword.html.twig',
                     ],
                 ],

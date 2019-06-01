@@ -17,7 +17,10 @@ $(document).ready(function () {
         chosenOptions[locale]
     );
 
-    $("#recipe-images-gallery").unitegallery();
+    $("#recipe-images-gallery").unitegallery({
+        theme_enable_text_panel: false,
+        gallery_autoplay: true,
+    });
 
     $('.add-collection-widget').click(function (e) {
         var list = jQuery(jQuery(this).attr('data-list-selector'));
