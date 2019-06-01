@@ -29,6 +29,8 @@ label_ingredients: "Składniki"
 label_previous: "Wstecz"
 label_next: "Dalej"
 label_user: "Użytkownik"
+label_imageFile: "Zdjęcie"
+label_images: "Zdjęcia"
 
 
 placeholder_phrase: "Szukaj..."
@@ -47,6 +49,8 @@ action_login: "Login"
 action_search: "Szukaj"
 action_changePassword: "Zmień hasło"
 action_logout: "Wyloguj"
+action_homepage: "Do strony głównej"
+action_show: "Zobacz"
 
 
 recipe_type_breakfast: "Śniadanie"

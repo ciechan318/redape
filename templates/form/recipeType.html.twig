@@ -20,6 +20,22 @@
 
 <button type="button" class="add-collection-widget" data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}</button>
 
+{{ form_label(form.images, 'label_images') }}
+
+<ul id="images-fields-list"
+    data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"
+    data-widget-tags="{{ '<li></li>'|e }}"
+    data-widget-counter="{{ form.children|length }}">
+    {% for imageField in form.images %}
+        <li>
+            {{ form_errors(imageField) }}
+            {{ form_widget(imageField) }}
+        </li>
+    {% endfor %}
+</ul>
+
+<button type="button" class="add-collection-widget" data-list-selector="#images-fields-list">{{ 'action_add'|trans }}</button>
+
 <button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
 
 {{ form_end(form) }}

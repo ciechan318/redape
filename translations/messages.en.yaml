@@ -29,12 +29,14 @@ label_ingredients: "Ingredients"
 label_previous: "Previous"
 label_next: "Next"
 label_user: "User"
-
-
-placeholder_phrase: "Search..."
+label_imageFile: "Image"
+label_images: "Images"
 
 
 help_label_preparationType: "In minutes"
+
+
+placeholder_phrase: "Search..."
 
 
 action_submit: "Submit"
@@ -47,6 +49,8 @@ action_login: "Login"
 action_search: "Search"
 action_changePassword: "Change password"
 action_logout: "Logout"
+action_homepage: "Back to Homepage"
+action_show: "Show"
 
 
 recipe_type_breakfast: "Breakfast"

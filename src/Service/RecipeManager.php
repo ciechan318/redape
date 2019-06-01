@@ -162,5 +162,4 @@ class RecipeManager
         return $this->paginate($queryBuilder, $page);
     }
 
-
 }

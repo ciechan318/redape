@@ -41,6 +41,15 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
                     'edit' => 'inline',
                     'inline' => 'table',
                 ]
+            )
+            ->add('images', CollectionType::class, [
+                'by_reference' => false,
+            ], [
+                    'admin_code' => RecipeImageAdmin::class,
+                    'label' => false,
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                ]
             );
     }
 
@@ -58,6 +67,14 @@ final class RecipeAdmin extends AbstractAdministrationAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('user', null, ['admin_code' => UserUserAdmin::class])
-            ->add('humanType', null, ['template' => 'admin/list_trans.html.twig', 'label' => 'label_type']);
+            ->add('humanType', null, ['template' => 'admin/list_trans.html.twig', 'label' => 'label_type'])
+            ->add('_action', null, [
+                'actions' => [
+                    'show' => [
+                        'template' => 'admin/list__action_recipeShow.html.twig',
+                    ],
+                ],
+            ]);
+
     }
 }

@@ -132,8 +132,14 @@
     "harvesthq/chosen": {
         "version": "v1.8.7"
     },
+    "imagine/imagine": {
+        "version": "v0.7.1"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "jms/metadata": {
+        "version": "2.0.0"
     },
     "knplabs/knp-components": {
         "version": "v1.3.10"
@@ -146,6 +152,19 @@
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v3.0.0"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "1d42bc3f713130582e6e0c475c49bc327ab0a2a2"
+        },
+        "files": [
+            "config/packages/liip_imagine.yaml",
+            "config/routes/liip_imagine.yaml"
+        ]
     },
     "monolog/monolog": {
         "version": "1.24.0"
@@ -378,6 +397,9 @@
     "symfony/polyfill-php72": {
         "version": "v1.11.0"
     },
+    "symfony/process": {
+        "version": "v4.2.9"
+    },
     "symfony/profiler-pack": {
         "version": "v1.0.4"
     },
@@ -495,6 +517,15 @@
             "config/routes/dev/web_profiler.yaml"
         ]
     },
+    "symfony/web-server-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
+        }
+    },
     "symfony/yaml": {
         "version": "v4.2.5"
     },
@@ -512,6 +543,18 @@
     },
     "twig/twig": {
         "version": "v2.7.4"
+    },
+    "vich/uploader-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        },
+        "files": [
+            "config/packages/vich_uploader.yaml"
+        ]
     },
     "zendframework/zend-code": {
         "version": "3.3.1"

@@ -78,6 +78,14 @@ class Recipe
     private $ingredientQuantities;
 
     /**
+     * @Assert\Valid()
+     * @Assert\Count(min=1, max=12)
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\RecipeImage", mappedBy="recipe", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $images;
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="recipeFavourites")
      */
     private $userFavourites;
@@ -91,6 +99,7 @@ class Recipe
     public function __construct()
     {
         $this->ingredientQuantities = new ArrayCollection();
+        $this->images = new ArrayCollection();
         $this->userFavourites = new ArrayCollection();
     }
 
@@ -240,6 +249,47 @@ class Recipe
             // set the owning side to null (unless already changed)
             if ($ingredientQuantity->getRecipe() === $this) {
                 $ingredientQuantity->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|RecipeImage[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param mixed $images
+     */
+    public function setImages($images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function addImage(RecipeImage $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(RecipeImage $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getRecipe() === $this) {
+                $image->setRecipe(null);
             }
         }
 

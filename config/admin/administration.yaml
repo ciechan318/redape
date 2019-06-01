@@ -13,6 +13,15 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: "administration_ingredient_quantity", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
+    App\Admin\Administration\RecipeImageAdmin:
+        class: App\Admin\Administration\RecipeImageAdmin
+        arguments:
+            - ~
+            - App\Entity\RecipeImage
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "administration_recipe_image", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
+
     App\Admin\Administration\IngredientAdmin:
         class: App\Admin\Administration\IngredientAdmin
         arguments:

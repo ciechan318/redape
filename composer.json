@@ -8,6 +8,7 @@
         "friendsofsymfony/ckeditor-bundle": "^2.1",
         "harvesthq/chosen": "^1.8",
         "knplabs/knp-paginator-bundle": "^3.0",
+        "liip/imagine-bundle": "^2.1",
         "sonata-project/admin-bundle": "^3.48",
         "sonata-project/doctrine-orm-admin-bundle": "^3.9",
         "stof/doctrine-extensions-bundle": "^1.3",
@@ -21,7 +22,8 @@
         "symfony/security-bundle": "4.2.*",
         "symfony/translation": "4.2.*",
         "symfony/twig-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "vich/uploader-bundle": "^1.9"
     },
     "config": {
         "preferred-install": {
@@ -76,6 +78,7 @@
         "symfony/maker-bundle": "^1.11",
         "symfony/monolog-bundle": "^3.0",
         "symfony/profiler-pack": "*",
-        "symfony/var-dumper": "*"
+        "symfony/var-dumper": "*",
+        "symfony/web-server-bundle": "4.2.*"
     }
 }
