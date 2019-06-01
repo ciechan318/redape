@@ -30,6 +30,7 @@ label_previous: "Previous"
 label_next: "Next"
 label_user: "User"
 label_imageFile: "Image"
+action_homepage: "Back to Homepage"
 
 
 placeholder_phrase: "Search..."

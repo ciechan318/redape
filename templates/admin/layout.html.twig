@@ -3,6 +3,8 @@
  {% block sonata_side_nav %}
     {{ parent() }}
      <div class="text-center">
+         <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> {{ 'action_homepage'|trans }}</a>
+         <br/>
          <a href="{{ path('app_logout') }}"><i class="fa fa-power-off"></i> {{ 'action_logout'|trans }}</a>
      </div>
 
