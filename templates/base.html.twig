@@ -19,28 +19,37 @@
 
     {% endblock %}
 </head>
+
 <body>
 <div id="data-locale" data-locale="{{ app.request.locale }}"></div>
+<div class="overlay"></div>
+
 {% block sidebar %}
     {% include 'sidebar.html.twig' %}
 {% endblock %}
 
-<div class="container-fluid">
-    <div class="overlay"></div>
-    <div id="content">
+<div id="content">
 
-        <div class="row">
-            <div class="col-sm">
-                <button type="button" id="sidebarCollapse" class="btn">
-                    <i class="fas fa-align-justify"></i>
-                </button>
+    <div class="header">
+        <button type="button" id="sidebarCollapse" class="btn">
+            <i class="fas fa-align-justify"></i>
+        </button>
+
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    {% block header %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="container">
         {% block body %}
         {% endblock %}
-
     </div>
+
 </div>
 
 {# the same types are defined in App\Service\FlashManager; to reduce overhead better to define them here again #}

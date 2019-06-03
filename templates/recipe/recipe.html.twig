@@ -12,9 +12,7 @@
             <div id="recipe-images-gallery" style="display:none;">
                 {% for image in recipe.getImages() %}
                     <img alt="{{ image.image.name }}" src="{{ vich_uploader_asset(image, 'imageFile') }}"
-                         data-image="{{ vich_uploader_asset(image, 'imageFile') }}"
-                    >
-
+                         data-image="{{ vich_uploader_asset(image, 'imageFile') }}">
                 {% endfor %}
             </div>
 

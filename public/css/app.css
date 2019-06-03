@@ -1,9 +1,9 @@
 body {
-    background: url('../images/background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    /*background: url('../images/background.jpg') no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*background-size: cover;*/
+    /*-o-background-size: cover;*/
 }
 
 a,
@@ -14,16 +14,24 @@ a:focus {
     transition: all 0.3s;
 }
 
+/*#content {*/
+/*    width: 100%;*/
+/*    !*min-height: 100vh;*!*/
+/*    height: 100vh;*/
+/*    transition: all 0.3s;*/
+/*    position: absolute;*/
+/*}*/
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 #sidebar {
     opacity: 0.95;
-    width: 250px;
+    width: 350px;
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -350px;
     height: 100vh;
     z-index: 999;
     background: #000000;
@@ -101,8 +109,12 @@ a[data-toggle="collapse"] {
 
 #sidebarCollapse {
     font-size: 32px;
+    opacity: 0.5;
 }
 
+#sidebarCollapse:hover {
+    opacity: 1;
+}
 
 .dropdown-toggle::after {
     display: block;
@@ -110,4 +122,20 @@ a[data-toggle="collapse"] {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+}
+
+.header {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+.search-form-filters {
+    display: none;
+}
+
+.about {
+    background: pink;
 }
