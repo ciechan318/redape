@@ -1,8 +1,8 @@
-{% extends 'profile/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ 'profile_title_recipes_edit'|trans }}{% endblock %}
 
-{% block content %}
+{% block body %}
     {{ render(controller('App\\Controller\\FormController::recipe', {'id': recipe.id })) }}
 {% endblock %}
 

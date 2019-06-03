@@ -3,14 +3,16 @@ administration_recipe: "Recipes"
 administration_user_administrator: "Admins"
 administration_user_user: "Clients"
 
+
 link_Ingredient_list: "Ingredients"
 link_Recipe_list: "Recipes"
 link_User_list: "Users"
 
-navbar_login: "Login"
-navbar_logout: "Logout"
-navbar_profile: "Account"
-navbar_change_language: "Languages"
+
+sidebar_login: "Login"
+sidebar_logout: "Logout"
+sidebar_profile: "Account"
+sidebar_change_language: "Languages"
 
 
 label__remember_me: "Remember me"

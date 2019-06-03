@@ -2,11 +2,11 @@ $(document).ready(function () {
 
     var chosenOptions = {
         en: {
-            placeholder_text_multiple: "Select multiple...",
+            placeholder_text_multiple: "Ingredients",
             no_results_text: "No results!",
         },
         pl: {
-            placeholder_text_multiple: "Wybierz wiele...",
+            placeholder_text_multiple: "Składniki",
             no_results_text: "Brak wyników!",
         }
     };
@@ -66,6 +66,24 @@ $(document).ready(function () {
         })
 
     })
+
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
 
 });
 

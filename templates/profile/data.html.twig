@@ -1,8 +1,8 @@
-{% extends 'profile/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ 'profile_title_user_data'|trans }}{% endblock %}
 
-{% block content %}
+{% block body %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
 

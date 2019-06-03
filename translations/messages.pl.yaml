@@ -3,14 +3,16 @@ administration_recipe: "Przepisy"
 administration_user_administrator: "Administratorzy"
 administration_user_user: "Użytkownicy"
 
+
 link_Ingredient_list: "Składniki"
 link_Recipe_list: "Przepisy"
 link_User_list: "Użytkownicy"
 
-navbar_login: "Login"
-navbar_logout: "Wyloguj"
-navbar_profile: "Konto"
-navbar_change_language: "Język"
+
+sidebar_login: "Login"
+sidebar_logout: "Wyloguj"
+sidebar_profile: "Konto"
+sidebar_change_language: "Język"
 
 
 label__remember_me: "Zapamiętaj na tym komputerze"
