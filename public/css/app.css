@@ -125,17 +125,31 @@ a[data-toggle="collapse"] {
 }
 
 .header {
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/background-2.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
     height: 100vh;
 }
+.search-form-filters-trigger {
+    margin-top: 10px;
+}
 
 .search-form-filters {
+    margin-top: 10px;
     display: none;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    min-height: 40vm;
+    /*text-align: left;*/
 }
 
-.about {
-    background: pink;
+.search-form-filters.active {
+    display: inline-block;
 }
+
+
+#about {
+    margin-top: 10px;
+}
+
+

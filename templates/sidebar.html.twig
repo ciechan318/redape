@@ -11,6 +11,11 @@
         </div>
 
         <ul class="list-unstyled components">
+            {% if app.request.get('_route') == 'homepage' %}
+                <li class="active">
+                    <a href="#about">{{ 'sidebar_about'|trans }}</a>
+                </li>
+            {% endif %}
             <li class="active">
                 <a href="#languages" data-toggle="collapse" aria-expanded="false">
                     {{ 'sidebar_change_language'|trans }}
@@ -26,7 +31,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item active">
+            <li class="active">
                 {% if app.user %}
                     {{ render(controller('App\\Controller\\ProfileController::sidebar')) }}
                 {% else %}

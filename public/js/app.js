@@ -1,20 +1,22 @@
 $(document).ready(function () {
 
-    var chosenOptions = {
+    var chosenOptionsIngredients = {
         en: {
             placeholder_text_multiple: "Ingredients",
             no_results_text: "No results!",
+            width: '500',
         },
         pl: {
             placeholder_text_multiple: "Składniki",
             no_results_text: "Brak wyników!",
+            width: '500',
         }
     };
 
     const locale = $('#data-locale').data('locale');
 
-    $('.chosen-select').chosen(
-        chosenOptions[locale]
+    $('.chosen-select-ingredients').chosen(
+        chosenOptionsIngredients[locale]
     );
 
     $("#recipe-images-gallery").unitegallery({
@@ -67,22 +69,24 @@ $(document).ready(function () {
 
     })
 
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
 
-        $('#dismiss, .overlay').on('click', function () {
-            $('#sidebar').removeClass('active');
-            $('.overlay').removeClass('active');
-        });
+    $('#dismiss, .overlay').on('click', function () {
+        $('#sidebar').removeClass('active');
+        $('.overlay').removeClass('active');
+    });
 
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').addClass('active');
-            $('.overlay').addClass('active');
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').addClass('active');
+        $('.overlay').addClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+
+    $('.search-form-filters-trigger').on('click', function () {
+        $('.search-form-filters').slideToggle('active');
     });
 
 });

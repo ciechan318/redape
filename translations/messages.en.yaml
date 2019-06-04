@@ -11,8 +11,8 @@ link_User_list: "Users"
 
 sidebar_login: "Login"
 sidebar_logout: "Logout"
-sidebar_profile: "Account"
 sidebar_change_language: "Languages"
+sidebar_about: "About"
 
 
 label__remember_me: "Remember me"
@@ -53,6 +53,7 @@ action_changePassword: "Change password"
 action_logout: "Logout"
 action_homepage: "Back to Homepage"
 action_show: "Show"
+action_showSearchFilters: "Filters"
 
 
 recipe_type_breakfast: "Breakfast"

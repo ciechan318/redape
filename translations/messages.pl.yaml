@@ -11,8 +11,8 @@ link_User_list: "Użytkownicy"
 
 sidebar_login: "Login"
 sidebar_logout: "Wyloguj"
-sidebar_profile: "Konto"
 sidebar_change_language: "Język"
+sidebar_about: "O nas"
 
 
 label__remember_me: "Zapamiętaj na tym komputerze"
@@ -53,6 +53,7 @@ action_changePassword: "Zmień hasło"
 action_logout: "Wyloguj"
 action_homepage: "Do strony głównej"
 action_show: "Zobacz"
+action_showSearchFilters: "Filtry"
 
 
 recipe_type_breakfast: "Śniadanie"
