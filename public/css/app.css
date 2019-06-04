@@ -130,6 +130,7 @@ a[data-toggle="collapse"] {
     background-position: center;
     height: 100vh;
 }
+
 .search-form-filters-trigger {
     margin-top: 10px;
 }
@@ -140,16 +141,36 @@ a[data-toggle="collapse"] {
     padding: 10px;
     background: rgba(0, 0, 0, 0.7);
     min-height: 40vm;
-    /*text-align: left;*/
 }
 
 .search-form-filters.active {
     display: inline-block;
 }
 
-
 #about {
     margin-top: 10px;
 }
+
+#search-results {
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+}
+
+#search-results ul.pagination li.page-item .page-link {
+    color: #FFFFFF;
+    background: none;
+}
+
+#search-results ul.pagination li.disabled span.page-link {
+    color: grey;
+}
+
+#search-results ul.pagination li.active span.page-link {
+    color: gray;
+    border-color: gray;
+}
+
+
 
 

@@ -2,31 +2,31 @@
 
 {% block title %}{{ 'title_search'|trans }}{% endblock %}
 
-{% block body %}
-    <div class="row">
-        <div class="col-sm">
-            {% if pagination.getTotalItemCount() == 0 %}
-                <div class="alert alert-warning">
-                    {{ 'search_no_results'|trans }}
+{% block header %}
+    <div id="search-results">
+
+        {% if pagination.getTotalItemCount() == 0 %}
+            <div class="alert alert-warning">
+                {{ 'search_no_results'|trans }}
+            </div>
+        {% else %}
+            <h3>
+                {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
+            </h3>
+
+            {% for row in pagination|batch(3) %}
+                <div class="row">
+                    {% for recipe in row %}
+                        <div class="col-sm-4">
+                            {% include 'search/resultTile.html.twig' %}
+                        </div>
+                    {% endfor %}
                 </div>
-            {% else %}
-                <h3>
-                    {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
-                </h3>
+            {% endfor %}
 
-                {% for row in pagination|batch(3) %}
-                    <div class="row">
-                        {% for recipe in row %}
-                            <div class="col-sm-4">
-                                {% include 'search/resultTile.html.twig' %}
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
+            {{ knp_pagination_render(pagination) }}
 
-                {{ knp_pagination_render(pagination) }}
+        {% endif %}
 
-            {% endif %}
-        </div>
     </div>
 {% endblock %}

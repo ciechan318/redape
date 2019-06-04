@@ -118,7 +118,7 @@ class RecipeManager
 
     protected function paginate(QueryBuilder $queryBuilder, int $page): SlidingPagination
     {
-        return $this->paginator->paginate($queryBuilder, $page, self::SEARCH_RESULTS_PER_PAGE, ['wrap-queries' => true]);
+        return $this->paginator->paginate($queryBuilder, $page, self::SEARCH_RESULTS_PER_PAGE, ['wrap-queries' => true, 'align' => 'center']);
     }
 
     public function setPhrase(?string $phrase): void
