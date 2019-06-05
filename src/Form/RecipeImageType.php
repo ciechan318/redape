@@ -12,7 +12,7 @@ class RecipeImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imageFile', VichImageType::class, ['required' => false, 'download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview']);
+            ->add('imageFile', VichImageType::class, ['required' => false, 'download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview', 'allow_delete' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

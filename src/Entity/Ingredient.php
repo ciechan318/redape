@@ -50,6 +50,8 @@ class Ingredient
     private $image;
 
     /**
+     * @Assert\NotBlank(message="validator_image_has_no_file")
+     *
      * @ORM\Column(type="datetime")
      * @var \DateTime
      */
