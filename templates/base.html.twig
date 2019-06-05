@@ -29,22 +29,24 @@
 {% endblock %}
 
 <div id="content">
+    <button type="button" id="sidebarCollapse" class="btn">
+        <i class="fas fa-align-justify"></i>
+    </button>
 
-    <div class="header">
-{#       @TODO remove empty space under header #}
-        <button type="button" id="sidebarCollapse" class="btn">
-            <i class="fas fa-align-justify"></i>
-        </button>
+    {% block header %}
+        <div class="header">
+            {#       @TODO remove empty space under header #}
 
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 text-center">
-                    {% block header %}
-                    {% endblock %}
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 text-center">
+                        {% block headerContent %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endblock %}
 
     <div class="container">
         {% block body %}

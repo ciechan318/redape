@@ -15,6 +15,10 @@ $(document).ready(function () {
 
     const locale = $('#data-locale').data('locale');
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $('.chosen-select-ingredients').chosen(
         chosenOptionsIngredients[locale]
     );

@@ -1,9 +1,5 @@
 body {
-    /*background: url('../images/background.jpg') no-repeat center center fixed;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*background-size: cover;*/
-    /*-o-background-size: cover;*/
+    background-color: lightgrey;
 }
 
 a,
@@ -188,6 +184,20 @@ a[data-toggle="collapse"] {
 
 .search-result-tile-title {
     background: rgba(0, 0, 0, 0.6);
+}
+
+.recipe-profile {
+    background: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.like-recipe-wrapper {
+    font-size: x-large;
+}
+
+.ingredients-gallery {
+    margin: 20px;
 }
 
 

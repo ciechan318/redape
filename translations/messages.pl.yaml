@@ -33,6 +33,7 @@ label_next: "Dalej"
 label_user: "Użytkownik"
 label_imageFile: "Zdjęcie"
 label_images: "Zdjęcia"
+label_minutes: "minut"
 
 
 placeholder_phrase: "Szukaj..."

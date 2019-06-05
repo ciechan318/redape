@@ -33,6 +33,7 @@ label_next: "Next"
 label_user: "User"
 label_imageFile: "Image"
 label_images: "Images"
+label_minutes: "minutes"
 
 
 help_label_preparationType: "In minutes"
