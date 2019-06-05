@@ -201,5 +201,14 @@ a[data-toggle="collapse"] {
 }
 
 
+.recipe-edit {
+    background: #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 40px;
+    padding: 20px 0px;
+}
+
+
 
 

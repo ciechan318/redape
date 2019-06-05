@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    //init Bootstrap tooltips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    //init Chosen plugin
+    const locale = $('#data-locale').data('locale');
+
     var chosenOptionsIngredients = {
         en: {
             placeholder_text_multiple: "Ingredients",
@@ -13,50 +21,47 @@ $(document).ready(function () {
         }
     };
 
-    const locale = $('#data-locale').data('locale');
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
     $('.chosen-select-ingredients').chosen(
         chosenOptionsIngredients[locale]
     );
 
+    //init Unite Gallery plugin
     $("#recipe-images-gallery").unitegallery({
         theme_enable_text_panel: false,
         gallery_autoplay: true,
     });
 
+    //init CollectionType handling
+    $('.form-collection').children().each(function (i) {
+        addCollectionDeleteLink($(this));
+    });
+
     $('.add-collection-widget').click(function (e) {
-        var list = jQuery(jQuery(this).attr('data-list-selector'));
-        var counter = list.data('widget-counter') | list.children().length;
+        var $collection = $($(this).attr('data-list-selector'));
+        var counter = $collection.data('widget-counter') | $collection.children().length;
 
         // grab the prototype template
-        var newWidget = list.attr('data-prototype');
+        var newWidget = $collection.attr('data-prototype');
         newWidget = newWidget.replace(/__name__/g, counter);
 
-        var removeButton = '<button class="remove-collection-widget btn btn-danger"><i class="fa fa-trash"></i></button>';
-        newWidget = newWidget + removeButton;
+        // newWidget = newWidget + removeButton;
 
         // Increase the counter
         counter++;
         // And store it, the length cannot be used if deleting widgets is allowed
-        list.data('widget-counter', counter);
+        $collection.data('widget-counter', counter);
 
-        // create a new list element and add it to the list
-        var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
-        newElem.appendTo(list);
+        // create a new list element...
+        var $newElem = $($collection.attr('data-widget-tags')).html(newWidget);
 
-        newElem.on('click', '.remove-collection-widget', function (e) {
-            e.preventDefault();
+        // add remove button to it...
+        addCollectionDeleteLink($newElem)
 
-            $(this).parent().remove();
-
-            return false;
-        });
+        // and add it to the list
+        $newElem.appendTo($collection);
     });
 
+    //recipes likes
     $('.like-recipe').on('click', function (e) {
         e.preventDefault();
 
@@ -68,11 +73,11 @@ $(document).ready(function () {
             url: $link.attr('href')
         }).done(function (response) {
             $('.like-recipe-count').html(response.hearts);
-
         })
 
     })
 
+    //sidebar
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
@@ -94,4 +99,13 @@ $(document).ready(function () {
     });
 
 });
+
+function addCollectionDeleteLink($element) {
+    var $removeFormButton = $('<button class="remove-collection-widget btn btn-danger"><i class="fa fa-trash"></i></button>');
+    $element.append($removeFormButton);
+
+    $removeFormButton.on('click', function (e) {
+        $element.remove();
+    });
+}
 

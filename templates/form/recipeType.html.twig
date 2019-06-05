@@ -6,7 +6,7 @@
 
 {{ form_label(form.ingredientQuantities, 'label_ingredientQuantities') }}
 
-<ul id="ingredient-quantities-fields-list"
+<ul id="ingredient-quantities-fields-list" class="form-collection"
     data-prototype="{{ form_widget(form.ingredientQuantities.vars.prototype)|e }}"
     data-widget-tags="{{ '<li></li>'|e }}"
     data-widget-counter="{{ form.children|length }}">
@@ -16,13 +16,17 @@
             {{ form_widget(ingredientField) }}
         </li>
     {% endfor %}
+
+    {#    @TODO for existing ingredients there is no remove button shown #}
+
 </ul>
 
-<button type="button" class="add-collection-widget" data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}</button>
+<button type="button" class="add-collection-widget"
+        data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}</button>
 
 {{ form_label(form.images, 'label_images') }}
 
-<ul id="images-fields-list"
+<ul id="images-fields-list" class="form-collection"
     data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"
     data-widget-tags="{{ '<li></li>'|e }}"
     data-widget-counter="{{ form.children|length }}">
@@ -34,13 +38,19 @@
     {% endfor %}
 </ul>
 
-<button type="button" class="add-collection-widget" data-list-selector="#images-fields-list">{{ 'action_add'|trans }}</button>
+<button type="button" class="add-collection-widget"
+        data-list-selector="#images-fields-list">{{ 'action_add'|trans }}</button>
 
-<button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
 
-{{ form_end(form) }}
+<div class="row text-right">
+    <div class="col-sm">
+        <button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
 
-<a class="btn btn-primary" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">
-    <i class="fa fa-list" aria-hidden="true"></i>
-    {{ 'action_list'|trans }}
-</a>
+        <a class="btn btn-primary" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            {{ 'action_list'|trans }}
+        </a>
+
+        {{ form_end(form) }}
+    </div>
+</div>
