@@ -73,6 +73,7 @@ profile_title_recipes_list: "Your recipes"
 profile_title_recipes_create: "Create new recipe"
 profile_title_recipes_edit: "Edit recipe"
 profile_title_logout: "Logout"
+profile_title_admin: "<span class='text-danger'>Admin section</span>"
 
 
 recipe_table_header_name: "Name"

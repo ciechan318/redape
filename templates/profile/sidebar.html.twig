@@ -1,6 +1,6 @@
 {% for name, routeData in sidebarRoutes %}
     <a href="{{ path(routeData['routeName'], routeData['routeParams']) }}">
-        {{ name|trans }}
+        {{ name|trans|raw }}
     </a>
 {% endfor %}
 

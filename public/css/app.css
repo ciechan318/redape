@@ -171,6 +171,25 @@ a[data-toggle="collapse"] {
     border-color: gray;
 }
 
+.search-result-tile {
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    margin: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 15vh;
+}
+
+.search-result-tile:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.search-result-tile-title {
+    background: rgba(0, 0, 0, 0.6);
+}
+
 
 
 
