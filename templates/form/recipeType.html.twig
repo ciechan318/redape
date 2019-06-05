@@ -1,4 +1,12 @@
+{% if isValid %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ 'flash_message_form_data_saved'|trans }}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fas fa-times"></i></a>
+    </div>
+{% endif %}
+
 {{ form_start(form) }}
+{{ form_errors(form) }}
 {{ form_row(form.name) }}
 {{ form_row(form.description) }}
 {{ form_row(form.preparationTime) }}

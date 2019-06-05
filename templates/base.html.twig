@@ -35,7 +35,7 @@
 
     {% block header %}
         <div class="header">
-            {#       @TODO remove empty space under header #}
+            {#       @TODO remove empty space under header caused by sidebar button #}
 
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
@@ -47,25 +47,22 @@
             </div>
         </div>
     {% endblock %}
-
     <div class="container">
+
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="{{ 'alert alert-'~type }} alert-dismissible fade show" role="alert">
+                    {{ message|trans }}
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fas fa-times"></i></a>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block body %}
         {% endblock %}
     </div>
-
 </div>
 
-
-{# the same types are defined in App\Service\FlashManager; to reduce overhead better to define them here again #}
-{# @TODO flashes must be Sonata-like #}
-{% set types = ['success', 'warning', 'error'] %}
-{% for type in types %}
-    {% for message in app.flashes(type) %}
-        <div class="{{ 'alert alert-'~type }}">
-            {{ message|trans }}
-        </div>
-    {% endfor %}
-{% endfor %}
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
             crossorigin="anonymous"></script>

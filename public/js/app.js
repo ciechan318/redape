@@ -1,9 +1,8 @@
 $(document).ready(function () {
 
-    //init Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
+    //init Bootstrap
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.alert').alert()
 
     //init Chosen plugin
     const locale = $('#data-locale').data('locale');
@@ -43,8 +42,6 @@ $(document).ready(function () {
         // grab the prototype template
         var newWidget = $collection.attr('data-prototype');
         newWidget = newWidget.replace(/__name__/g, counter);
-
-        // newWidget = newWidget + removeButton;
 
         // Increase the counter
         counter++;

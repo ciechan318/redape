@@ -6,47 +6,57 @@
 {% endblock %}
 
 {% block body %}
-    <a class="btn btn-success" href="{{ path('app_profile_recipe_create') }}">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        {{ 'action_create'|trans }}
-    </a>
-
-    {% if pagination.getTotalItemCount() == 0 %}
-        <div class="alert alert-warning">
-            {{ 'recipe_table_empty'|trans }}
+    <div class="row">
+        <div class="col-sm">
+            <a class="btn btn-success" href="{{ path('app_profile_recipe_create') }}">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                {{ 'action_create'|trans }}
+            </a>
         </div>
-    {% else %}
-        <h3>
-            {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
-        </h3>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_name'|trans, 'r.name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_type'|trans, 'r.type') }}</th>
-                <th>{{ 'recipe_table_header_actions'|trans }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for recipe in pagination %}
-                <td>{{ recipe.name }}</td>
-                <td>{{ recipe.humanType|trans }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('app_profile_recipe_edit', {'id': recipe.id}) }}">
-                        <i class="fa fa-edit" aria-hidden="true"></i>
-                        {{ 'action_edit'|trans }}
-                    </a>
-                    <a class="btn btn-success" href="{{ path('recipe', {'slug': recipe.slug}) }}">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                        {{ 'action_show'|trans }}
-                    </a>
-                </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    </div>
 
-     {{ knp_pagination_render(pagination) }}
+    <br/>
 
-    {% endif %}
+    <div class="row">
+        <div class="col-sm">
+            {% if pagination.getTotalItemCount() == 0 %}
+                <div class="alert alert-warning">
+                    {{ 'recipe_table_empty'|trans }}
+                </div>
+            {% else %}
+                <h3>
+                    {{ 'title_results_quantity'|trans({'%quantity%': pagination.getTotalItemCount()}) }}
+                </h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_name'|trans, 'r.name') }}</th>
+                        <th>{{ knp_pagination_sortable(pagination, 'recipe_table_header_type'|trans, 'r.type') }}</th>
+                        <th>{{ 'recipe_table_header_actions'|trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for recipe in pagination %}
+                        <td>{{ recipe.name }}</td>
+                        <td>{{ recipe.humanType|trans }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ path('app_profile_recipe_edit', {'id': recipe.id}) }}">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                {{ 'action_edit'|trans }}
+                            </a>
+                            <a class="btn btn-success" href="{{ path('recipe', {'slug': recipe.slug}) }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                {{ 'action_show'|trans }}
+                            </a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                {{ knp_pagination_render(pagination) }}
+
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

@@ -86,16 +86,12 @@ class ProfileController extends AbstractController
         return $this->render('profile/recipeList.html.twig', [
             'pagination' => $pagination,
         ]);
-
-        return $this->render('profile/recipeList.html.twig', [
-            'pagination' => $pagination,
-        ]);
     }
 
     /**
      * @Route("/profile/recipes/create", name="app_profile_recipe_create")
      */
-    public function recipeCreate()
+    public function recipeCreate(Request $request)
     {
         return $this->render('profile/recipeCreate.html.twig', [
         ]);
