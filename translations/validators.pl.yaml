@@ -2,3 +2,4 @@ validator_authentication_error: "Wystąpił bład. Upewnij się, że podawane ha
 validator_ingredient_already_present_in_recipe: "Ten składnik jest już przypisany do tego przepisu"
 validator_images_at_least_one: "Przepis musi posiadać przynajmniej jedno zdjęcie"
 validator_image_has_no_file: "Nie załączono pliku do zdjęcia"
+validator_ingredients_at_least_one: "Przepis musi posiadać przynajmniej jeden składnik"
