@@ -40,6 +40,15 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: main, label: "administration_recipe", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
 
+    App\Admin\Administration\SettingsAdmin:
+        class: App\Admin\Administration\SettingsAdmin
+        arguments:
+            - ~
+            - App\Entity\Settings
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: main, label: "administration_settings", label_translator_strategy: "App\\Translator\\ProjectLabelTranslatorStrategy" }
+
     App\Admin\Administration\UserAdministratorAdmin:
         class: App\Admin\Administration\UserAdministratorAdmin
         arguments:

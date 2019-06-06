@@ -1,11 +1,13 @@
 administration_ingredient: "Składniki"
 administration_recipe: "Przepisy"
+administration_settings: "Ustawienia"
 administration_user_administrator: "Administratorzy"
 administration_user_user: "Użytkownicy"
 
 
 link_Ingredient_list: "Składniki"
 link_Recipe_list: "Przepisy"
+link_Settings_list: "Ustawienia"
 link_User_list: "Użytkownicy"
 
 
@@ -35,6 +37,7 @@ label_user: "Użytkownik"
 label_imageFile: "Zdjęcie"
 label_images: "Zdjęcia"
 label_minutes: "minut"
+label_body: "Treść"
 
 
 placeholder_phrase: "Szukaj..."
@@ -63,6 +66,9 @@ recipe_type_dinner: "Obiad"
 recipe_type_snack: "Przekąska"
 recipe_type_festive: "Uroczyste"
 recipe_type_other: "Inne"
+
+
+settings_type_about: "O nas"
 
 
 flash_message_form_data_saved: "Dane zostały zapisane"

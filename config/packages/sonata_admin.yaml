@@ -13,6 +13,9 @@ sonata_admin:
             - { type: sonata.admin.block.admin_list, position: left }
     templates:
         layout: 'admin/layout.html.twig'
+    assets:
+        extra_stylesheets:
+            - 'css/sonata_custom.css'
 
 sonata_block:
     blocks:

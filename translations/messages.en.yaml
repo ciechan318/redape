@@ -1,11 +1,13 @@
 administration_ingredient: "Ingredients"
 administration_recipe: "Recipes"
+administration_settings: "Settings"
 administration_user_administrator: "Admins"
 administration_user_user: "Clients"
 
 
 link_Ingredient_list: "Ingredients"
 link_Recipe_list: "Recipes"
+link_Settings_list: "Settings"
 link_User_list: "Users"
 
 
@@ -35,6 +37,7 @@ label_user: "User"
 label_imageFile: "Image"
 label_images: "Images"
 label_minutes: "minutes"
+label_body: "Body"
 
 
 help_label_preparationType: "In minutes"
@@ -63,6 +66,9 @@ recipe_type_dinner: "Dinner"
 recipe_type_snack: "Snack"
 recipe_type_festive: "Festive"
 recipe_type_other: "Other"
+
+
+settings_type_about: "About"
 
 
 flash_message_form_data_saved: "Submitted data was saved"
