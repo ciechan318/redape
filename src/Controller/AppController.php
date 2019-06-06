@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Form\RecipeSearchType;
+use App\Repository\SettingsRepository;
 use App\Service\FlashManager;
 use App\Service\LanguageManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +20,7 @@ class AppController extends AbstractController
      * @Route("/", name="homepage")
      * @return Response
      */
-    public function homepage(Request $request)
+    public function homepage(Request $request, SettingsRepository $settingsRepository)
     {
         $form = $this->createForm(RecipeSearchType::class);
 
@@ -51,6 +52,7 @@ class AppController extends AbstractController
 
         return $this->render('homepage.html.twig', [
             'form' => $form->createView(),
+            'about' => $settingsRepository->findAbout(),
         ]);
     }
 

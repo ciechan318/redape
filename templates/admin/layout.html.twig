@@ -1,8 +1,16 @@
 {% extends '@SonataAdmin/standard_layout.html.twig' %}
 
  {% block sonata_side_nav %}
-    {{ parent() }}
+     {{ parent() }}
      <div class="text-center">
+         <ul class="list-group">
+             {% for locale in supportedLocales %}
+                 <li class="list-group-item list-group-item-language">
+                     <a href="{{ path('changeLocale', {'locale': locale}) }}">{{ locale|upper }}</a>
+                 </li>
+             {% endfor %}
+         </ul>
+
          <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> {{ 'action_homepage'|trans }}</a>
          <br/>
          <a href="{{ path('app_logout') }}"><i class="fa fa-power-off"></i> {{ 'action_logout'|trans }}</a>

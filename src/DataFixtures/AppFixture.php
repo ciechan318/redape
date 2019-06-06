@@ -2,76 +2,45 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Ingredient;
-use App\Entity\IngredientQuantity;
-use App\Entity\Recipe;
-use App\Entity\User;
+use App\Entity\Settings;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Gedmo\Translatable\Entity\Repository\TranslationRepository;
+use Gedmo\Translatable\Entity\Translation;
 
-class AppFixture extends Fixture
+class AppFixture extends Fixture implements FixtureGroupInterface
 {
 
-    protected $ingredients = [];
+    /**
+     * @var TranslationRepository
+     */
+    private $translationRepository;
+
+    public static function getGroups(): array
+    {
+        return ['prod'];
+    }
 
     public function load(ObjectManager $manager)
     {
+        $this->translationRepository = $manager->getRepository(Translation::class);
+        $settingsAbout = $this->createAboutDemoEntry();
 
-        $this->ingredients = $manager->getRepository(Ingredient::class)->findAll();
-
-        for ($i = 0; $i <= 50; $i++) {
-            $recipe = $this->createRecipe($manager, $i);
-            $manager->persist($recipe);
-        }
+        $manager->persist($settingsAbout);
 
         $manager->flush();
     }
 
-    protected function createRecipe(ObjectManager $manager, int $index): Recipe
+    protected function createAboutDemoEntry(): Settings
     {
-        $recipe = new Recipe();
-        $recipe->setName('recipe_test_' . $index);
-        $recipe->setUser($this->getRandomUser($manager));
-        $recipe->setDescription('recipe_test_description_' . $index);
-        $recipe->setPreparationTime(rand(5, 90));
-        $recipe->setType(rand(1, 5));
-        $recipe->setIngredientQuantities($this->generateIngredients($manager, $recipe));
+        $about = new Settings();
+        $about->setType(Settings::TYPE_ABOUT);
+        $about->setBody('>> [WIP] About R.E.D.A.P.E. <<'); //in english - default locale
 
-        return $recipe;
+        $this->translationRepository->translate($about, 'body', 'pl', '>> [WIP] O R.E.D.A.P.E. <<');
+
+        return $about;
     }
-
-    protected function getRandomUser(ObjectManager $manager): User
-    {
-        $users = $manager->getRepository(User::class)->findAll();
-
-        return $users[array_rand($users)];
-    }
-
-    protected function generateIngredients(ObjectManager $manager, Recipe $recipe): ArrayCollection
-    {
-        $collection = new ArrayCollection();
-        $count = array_rand([1, 3]);
-
-        for ($i = 0; $i <= $count; $i++) {
-            $iq = new IngredientQuantity();
-            $iq->setIngredient($this->ingredients[array_rand($this->ingredients)]);
-            $iq->setQuantity(rand(2, 10) . ' ' . $this->getRandomQuantitySuffix($manager));
-            $iq->setRecipe($recipe);
-
-            $manager->persist($iq);
-            $collection->add($iq);
-        }
-
-        return $collection;
-    }
-
-    protected function getRandomQuantitySuffix(ObjectManager $manager): string
-    {
-        $suffixes = ['pieces', 'pcs.', 'glasses', 'dag', 'kg', 'pinches'];
-
-        return $suffixes[array_rand($suffixes)];
-    }
-
 
 }

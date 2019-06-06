@@ -4,6 +4,7 @@
 namespace App\Admin;
 
 use App\Service\ClientManager;
+use App\Service\LanguageManager;
 use Sonata\AdminBundle\Admin\AbstractAdmin as BaseAbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
 
@@ -17,7 +18,8 @@ abstract class AbstractAdmin extends BaseAbstractAdmin
      */
     protected $clientManager;
 
-    public function __construct($code, $class, $baseControllerName, ClientManager $clientManager)
+
+    public function __construct($code, $class, $baseControllerName, ClientManager $clientManager, LanguageManager $languageManager)
     {
         parent::__construct($code, $class, $baseControllerName);
         $this->clientManager = $clientManager;
