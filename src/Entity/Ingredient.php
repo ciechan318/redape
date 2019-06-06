@@ -93,6 +93,14 @@ class Ingredient
         }
     }
 
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
     public function getImage(): ?EmbeddedFile
     {
         return $this->image;

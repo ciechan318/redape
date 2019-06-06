@@ -11,12 +11,12 @@ $(document).ready(function () {
         en: {
             placeholder_text_multiple: "Ingredients",
             no_results_text: "No results!",
-            width: '500',
+            width: '325',
         },
         pl: {
             placeholder_text_multiple: "Składniki",
             no_results_text: "Brak wyników!",
-            width: '500',
+            width: '325',
         }
     };
 
