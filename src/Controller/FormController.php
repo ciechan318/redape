@@ -38,7 +38,6 @@ class FormController extends AbstractController
 
         $form->handleRequest($request);
 
-
         $isValid = false;
 
         if ($form->isSubmitted() && $form->isValid()) {

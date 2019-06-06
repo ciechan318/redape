@@ -200,7 +200,6 @@ a[data-toggle="collapse"] {
     margin: 20px;
 }
 
-
 .recipe-edit {
     background: #FFFFFF;
     border-style: solid;
@@ -208,6 +207,19 @@ a[data-toggle="collapse"] {
     margin-bottom: 40px;
     padding: 20px 0px;
 }
+
+#profile-data {
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+}
+
+#profile-password-change {
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+}
+
 
 
 

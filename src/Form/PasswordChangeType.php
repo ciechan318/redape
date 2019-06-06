@@ -18,8 +18,8 @@ class PasswordChangeType extends AbstractType
                 RepeatedType::class,
                 ['mapped' => false,
                     'type' => PasswordType::class,
-                    'first_options' => ['label' => 'label_password'],
-                    'second_options' => ['label' => 'label_password_confirmation'],
+                    'first_options' => ['label' => 'label_newPassword'],
+                    'second_options' => ['label' => 'label_passwordConfirmation'],
                     'constraints' => [new NotBlank()],
                 ]);
     }
