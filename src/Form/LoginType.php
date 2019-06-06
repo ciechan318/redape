@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,11 +13,7 @@ class LoginType extends AbstractType
     {
         $builder
             ->add('email', null, ['label' => false, 'attr' => ['placeholder' => 'label_email']])
-            ->add('password', PasswordType::class, ['label' => false, 'attr' => ['placeholder' => 'label_password']])
-            ->add('_remember_me', CheckboxType::class, [
-                'required' => false,
-                'data' => true,
-            ]);
+            ->add('password', PasswordType::class, ['label' => false, 'attr' => ['placeholder' => 'label_password']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
