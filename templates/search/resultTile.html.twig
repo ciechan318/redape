@@ -1,7 +1,8 @@
-<div>
-    <a href="{{ path('recipe', {'slug': recipe.slug}) }}">
-        <p>
+<a href="{{ path('recipe', {'slug': recipe.slug}) }}">
+    <div class="search-result-tile"
+         style='background-image: url("{{ vich_uploader_asset(recipe.images.first, 'imageFile') | imagine_filter('recipe_main_image') }}");'>
+        <p class="search-result-tile-title">
             {{ recipe.name }}
         </p>
-    </a>
-</div>
+    </div>
+</a>

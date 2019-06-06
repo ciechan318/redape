@@ -33,3 +33,8 @@ liip_imagine:
             quality: 90
             filters:
                 thumbnail: { size: [480, 320], mode: outbound }
+
+        recipe_ingredient:
+            quality: 75
+            filters:
+                thumbnail: { size: [90, 60], mode: outbound }

@@ -25,6 +25,11 @@ class ProfileController extends AbstractController
             'profile_title_logout' => ['routeName' => 'app_logout', 'routeParams' => []],
         ];
 
+        if ($this->isGranted('ROLE_ADMIN', $clientManager->getUser())) {
+            $sidebarRoutes['profile_title_admin'] = ['routeName' => 'sonata_admin_dashboard', 'routeParams' => []];
+
+        }
+
         return $this->render('profile/sidebar.html.twig', [
             'user' => $clientManager->getUser(),
             'sidebarRoutes' => $sidebarRoutes,
@@ -81,16 +86,12 @@ class ProfileController extends AbstractController
         return $this->render('profile/recipeList.html.twig', [
             'pagination' => $pagination,
         ]);
-
-        return $this->render('profile/recipeList.html.twig', [
-            'pagination' => $pagination,
-        ]);
     }
 
     /**
      * @Route("/profile/recipes/create", name="app_profile_recipe_create")
      */
-    public function recipeCreate()
+    public function recipeCreate(Request $request)
     {
         return $this->render('profile/recipeCreate.html.twig', [
         ]);

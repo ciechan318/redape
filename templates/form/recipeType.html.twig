@@ -1,4 +1,12 @@
+{% if isValid %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ 'flash_message_form_data_saved'|trans }}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fas fa-times"></i></a>
+    </div>
+{% endif %}
+
 {{ form_start(form) }}
+{{ form_errors(form) }}
 {{ form_row(form.name) }}
 {{ form_row(form.description) }}
 {{ form_row(form.preparationTime) }}
@@ -6,7 +14,7 @@
 
 {{ form_label(form.ingredientQuantities, 'label_ingredientQuantities') }}
 
-<ul id="ingredient-quantities-fields-list"
+<ul id="ingredient-quantities-fields-list" class="form-collection"
     data-prototype="{{ form_widget(form.ingredientQuantities.vars.prototype)|e }}"
     data-widget-tags="{{ '<li></li>'|e }}"
     data-widget-counter="{{ form.children|length }}">
@@ -18,11 +26,12 @@
     {% endfor %}
 </ul>
 
-<button type="button" class="add-collection-widget" data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}</button>
+<button type="button" class="add-collection-widget"
+        data-list-selector="#ingredient-quantities-fields-list">{{ 'action_add'|trans }}</button>
 
 {{ form_label(form.images, 'label_images') }}
 
-<ul id="images-fields-list"
+<ul id="images-fields-list" class="form-collection"
     data-prototype="{{ form_widget(form.images.vars.prototype)|e }}"
     data-widget-tags="{{ '<li></li>'|e }}"
     data-widget-counter="{{ form.children|length }}">
@@ -34,13 +43,19 @@
     {% endfor %}
 </ul>
 
-<button type="button" class="add-collection-widget" data-list-selector="#images-fields-list">{{ 'action_add'|trans }}</button>
+<button type="button" class="add-collection-widget"
+        data-list-selector="#images-fields-list">{{ 'action_add'|trans }}</button>
 
-<button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
 
-{{ form_end(form) }}
+<div class="row text-right">
+    <div class="col-sm">
+        <button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
 
-<a class="btn btn-primary" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">
-    <i class="fa fa-list" aria-hidden="true"></i>
-    {{ 'action_list'|trans }}
-</a>
+        <a class="btn btn-primary" href="{{ path('app_profile_recipe_list', {'page': 1}) }}">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            {{ 'action_list'|trans }}
+        </a>
+
+        {{ form_end(form) }}
+    </div>
+</div>

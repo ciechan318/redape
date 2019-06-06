@@ -1,11 +1,13 @@
-{% extends 'profile/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ 'profile_title_user_data'|trans }}{% endblock %}
 
-{% block content %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
+{% block headerContent %}
+    <div id="profile-data">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
 
-    <button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
-    {{ form_end(form) }}
+        <button type="submit" class="btn btn-primary">{{ 'action_submit'|trans }}</button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

@@ -3,12 +3,10 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Recipe;
 use App\Form\RecipeType;
 use App\Repository\RecipeRepository;
 use App\Service\ClientManager;
-use App\Service\FlashManager;
 use App\Service\RecipeManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -18,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormController extends AbstractController
 {
     /**
-     * @Route("/form/recipe/{}", name="app_form_recipe")
+     * @Route("/form/recipe/{id}", name="app_form_recipe")
      */
     public function recipe(RequestStack $requestStack, RecipeRepository $recipeRepository, RecipeManager $recipeManager, ClientManager $clientManager, ?int $id = null)
     {
@@ -40,14 +38,17 @@ class FormController extends AbstractController
 
         $form->handleRequest($request);
 
+        $isValid = false;
+
         if ($form->isSubmitted() && $form->isValid()) {
             $recipeManager->saveRecipe($form->getData());
 
-            $this->addFlash(FlashManager::FLASH_TYPE_SUCCESS, FlashManager::FLASH_MESSAGE_FORM_DATA_SAVED);
+            $isValid = true;
         }
 
         return $this->render('form/recipeType.html.twig', [
             'form' => $form->createView(),
+            'isValid' => $isValid
         ]);
     }
 }

@@ -1,0 +1,47 @@
+<div class="wrapper">
+
+    <nav id="sidebar">
+
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3><a href="{{ path('homepage') }}">{{ 'title_redape'|trans }}</a></h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            {% if app.request.get('_route') == 'homepage' %}
+                <li class="active">
+                    <a href="#about">{{ 'sidebar_about'|trans }}</a>
+                </li>
+            {% endif %}
+            <li class="active">
+                <a href="#languages" data-toggle="collapse" aria-expanded="false">
+                    {{ 'sidebar_change_language'|trans }}
+                </a>
+
+                <ul class="collapse list-unstyled" id="languages">
+                    {% for locale in supportedLocales %}
+                        <li>
+                            <a href="{{ path('changeLocale', {'locale': locale}) }}">{{ locale|upper }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </li>
+
+            <li class="active">
+                {% if app.user %}
+                    {{ render(controller('App\\Controller\\ProfileController::sidebar')) }}
+                {% else %}
+                    <a href="{{ path('app_login') }}">{{ 'sidebar_login'|trans }}</a>
+                {% endif %}
+            </li>
+        </ul>
+
+    </nav>
+
+</div>
+
+

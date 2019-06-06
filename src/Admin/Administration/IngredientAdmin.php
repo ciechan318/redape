@@ -17,7 +17,7 @@ final class IngredientAdmin extends AbstractAdministrationAdmin
     {
         $formMapper
             ->add('name')
-            ->add('imageFile', VichImageType::class, ['download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview']);
+            ->add('imageFile', VichImageType::class, ['required' => false, 'download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview', 'allow_delete' => false]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

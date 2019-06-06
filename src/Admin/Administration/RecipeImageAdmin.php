@@ -20,7 +20,7 @@ final class RecipeImageAdmin extends AbstractAdministrationAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('imageFile', VichImageType::class, ['download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview']);
+            ->add('imageFile', VichImageType::class, ['required' => false, 'download_label' => 'action_downloadFullSize', 'imagine_pattern' => 'admin_preview', 'allow_delete' => false]);
     }
 
 }

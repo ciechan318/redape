@@ -1,7 +1,14 @@
-{% extends 'profile/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{{ 'profile_title_recipes_create'|trans }}{% endblock %}
 
-{% block content %}
-    {{ render(controller('App\\Controller\\FormController::recipe')) }}
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    <div class="row recipe-edit">
+        <div class="col-sm">
+            {{ render(controller('App\\Controller\\FormController::recipe')) }}
+        </div>
+    </div>
 {% endblock %}
