@@ -103,12 +103,17 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-#sidebarCollapse {
+#sidebar-collapse-wrapper {
+    position: absolute;
+    padding: 0;
+}
+
+#sidebar-collapse {
     font-size: 32px;
     opacity: 0.5;
 }
 
-#sidebarCollapse:hover {
+#sidebar-collapse:hover {
     opacity: 1;
 }
 
@@ -218,6 +223,10 @@ a[data-toggle="collapse"] {
     color: #FFFFFF;
     background: rgba(0, 0, 0, 0.6);
     padding: 10px;
+}
+
+#profile-recipe-list {
+    padding: 20px;
 }
 
 

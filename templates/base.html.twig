@@ -29,14 +29,30 @@
 {% endblock %}
 
 <div id="content">
-    <button type="button" id="sidebarCollapse" class="btn">
-        <i class="fas fa-align-justify"></i>
-    </button>
+    <div id="sidebar-collapse-wrapper">
+        <button type="button" id="sidebar-collapse" class="btn">
+            <i class="fas fa-align-justify"></i>
+        </button>
+    </div>
+
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="{{ 'alert alert-'~type }} alert-dismissible fade show" role="alert">
+                            {{ message|trans }}
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close"><i
+                                        class="fas fa-times"></i></a>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     {% block header %}
         <div class="header">
-            {#       @TODO remove empty space under header caused by sidebar button #}
-
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12 text-center">
@@ -48,16 +64,6 @@
         </div>
     {% endblock %}
     <div class="container">
-
-        {% for type, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="{{ 'alert alert-'~type }} alert-dismissible fade show" role="alert">
-                    {{ message|trans }}
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="fas fa-times"></i></a>
-                </div>
-            {% endfor %}
-        {% endfor %}
-
         {% block body %}
         {% endblock %}
     </div>

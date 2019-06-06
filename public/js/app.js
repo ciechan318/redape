@@ -84,7 +84,7 @@ $(document).ready(function () {
         $('.overlay').removeClass('active');
     });
 
-    $('#sidebarCollapse').on('click', function () {
+    $('#sidebar-collapse').on('click', function () {
         $('#sidebar').addClass('active');
         $('.overlay').addClass('active');
         $('.collapse.in').toggleClass('in');
