@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "GPL-3.0-only",
     "require": {
         "php": "^7.3.0",
         "ext-ctype": "*",
@@ -29,7 +29,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.3.15"
+        }
     },
     "autoload": {
         "psr-4": {
