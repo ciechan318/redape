@@ -4,10 +4,10 @@ vich_uploader:
     mappings:
         ingredient:
             uri_prefix: /uploads/ingredients
-            upload_destination: '%kernel.project_dir%/public/uploads/ingredients'
+            upload_destination: '%kernel.project_dir%/public_html/uploads/ingredients'
             namer: vich_uploader.namer_uniqid
 
         recipeImage:
             uri_prefix: /uploads/recipeImages
-            upload_destination: '%kernel.project_dir%/public/uploads/recipeImages'
+            upload_destination: '%kernel.project_dir%/public_html/uploads/recipeImages'
             namer: vich_uploader.namer_uniqid

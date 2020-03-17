@@ -4,8 +4,8 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-/public/bundles/
-/public/uploads/
+/public_html/bundles/
+/public_html/uploads/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
@@ -15,7 +15,7 @@
 
 
 ###> liip/imagine-bundle ###
-/public/media/cache/
+/public_html/media/cache/
 ###< liip/imagine-bundle ###
 
 ###> symfony/web-server-bundle ###
