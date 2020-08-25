@@ -42,10 +42,25 @@ class RecipeController extends AbstractController
     }
 
     /**
-     * @Route("/recipe/{slug}/like", name="toggleRecipeLike")
-     * @return JsonResponse
+     * @Route("/recipe/{slug}/like", name="toggleRecipeLike", methods={"POST"})
+     * @param string $slug
+     * @param Request $request
+     * @param FirewallMap $firewallMap
+     * @param SessionInterface $session
+     * @param RecipeRepository $recipeRepository
+     * @param RecipeManager $recipeManager
+     * @param ClientManager $clientManager
+     * @return Response
      */
-    public function toggleRecipeLike(string $slug, Request $request, FirewallMap $firewallMap, SessionInterface $session, RecipeRepository $recipeRepository, RecipeManager $recipeManager, ClientManager $clientManager)
+    public function toggleRecipeLike(
+        string $slug,
+        Request $request,
+        FirewallMap $firewallMap,
+        SessionInterface $session,
+        RecipeRepository $recipeRepository,
+        RecipeManager $recipeManager,
+        ClientManager $clientManager
+    )
     {
         $recipe = $recipeRepository->findOneBy(['slug' => $slug]);
 
@@ -58,7 +73,11 @@ class RecipeController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $recipeManager->toggleFavourite($recipe, $clientManager->getUser());
+        $submittedToken = $request->request->get('token');
+
+        if ($this->isCsrfTokenValid('toggle-like-token', $submittedToken)) {
+            $recipeManager->toggleFavourite($recipe, $clientManager->getUser());
+        }
 
         return $this->json(['hearts' => $recipe->getLikes()]);
     }

@@ -14,7 +14,8 @@
                 </h1>
                 <span class="like-recipe-wrapper">
                     <a href="{{ path('toggleRecipeLike', {'slug': recipe.slug }) }}"
-                       class="{{ recipe.isLikedBy(user) ? 'fas' : 'far' }} fa-heart {{ user ? 'like-recipe' : '' }}">
+                       class="{{ recipe.isLikedBy(user) ? 'fas' : 'far' }} fa-heart {{ user ? 'like-recipe' : '' }}"
+                       data-token="{{ csrf_token('toggle-like-token') }}">
                     </a>
                     <span class="like-recipe-count">
                         {{ recipe.likes }}

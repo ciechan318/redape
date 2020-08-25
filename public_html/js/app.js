@@ -65,13 +65,14 @@ $(document).ready(function () {
         var $link = $(e.currentTarget);
         $link.toggleClass('far').toggleClass('fas');
 
-        $.ajax({
-            method: 'POST',
-            url: $link.attr('href')
-        }).done(function (response) {
+        $.post(
+            $link.attr('href'),
+            {
+                token: $link.attr('data-token')
+            }
+        ).done(function (response) {
             $('.like-recipe-count').html(response.hearts);
         })
-
     })
 
     //sidebar
