@@ -8,4 +8,4 @@ All files in this repository are licensed under GNU General Public License v3.0,
 * all files from Chosen (jQuery plugin) - check it out here - https://harvesthq.github.io/chosen/. All right to these files belong to their respective owners - more info in [its licence](public_html/licenses/Chosen.md) and under previous link;
 * all files from Unite Gallery (jQuery plugin) - check it out here - http://unitegallery.net/. All right to these files belong to their respective owners - more info in [its license](public_html/licenses/Unite_Gallery.md) and under previous link;
 
-Copyright (C) 2020 Karol Kasiarz
+Copyright (C) 2020 Karol KasiarzTEST
