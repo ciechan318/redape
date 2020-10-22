@@ -1,4 +1,4 @@
-ogrom zmian
+Ogrom zmian.
 # R.E.D.A.P.E. - Rather Enjoyable Dinners And Pleasant Eats
 Simple Symfony 4 application - https://symfony.com/ , created just to check differences between Symfony 3 and 4,
 to get to know Symfony Flex and for sandbox-oriented fun-purposes.
